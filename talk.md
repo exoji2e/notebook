@@ -6,7 +6,7 @@ Problem aaaahh på kattis:
 * Kom ihåg att alla problem med små input/output inte är lätta, men att det ger en bra fingervisning.
 
 
-# Innan du böjrar skriva din lösning
+# Innan du börjar skriva din lösning
 kolla på input och fundera på om din lösning är snabb nog:
 
 * n > [300000,10^9] => O(n)
@@ -19,7 +19,7 @@ kolla på input och fundera på om din lösning är snabb nog:
 i c/c++ har man ca 10^9 operationer (arraylookups/addition/multiplikation/jämförelser per sekund på kattis)
 i java har man ca 5*10^8 arraylookups, men samma mängd av resten.
 
-#Kvadratiska naivt men går att göra bättre:
+#Kvadratiska naivt, worst case, men går att göra bättre:
 
 * konkatenering av n strängar (utskrift) => linjärt med en stringbuilder (dynamisk char array)
 
