@@ -1,7 +1,12 @@
-hur angriper man ett problem?
-Problem aaaahh på kattis
+# Hur angriper man ett problem?
+Problem aaaahh på kattis:
+
+* kolla på input/output
+* läs problemet nedifrån och upp om in/out är litet.
+* Kom ihåg att alla problem med små input/output inte är lätta, men att det ger en bra fingervisning.
 
 
+# Innan du böjrar skriva din lösning
 kolla på input och fundera på om din lösning är snabb nog:
 
 * n > [300000,10^9] => O(n)
@@ -14,7 +19,7 @@ kolla på input och fundera på om din lösning är snabb nog:
 i c/c++ har man ca 10^9 operationer (arraylookups/addition/multiplikation/jämförelser per sekund på kattis)
 i java har man ca 5*10^8 arraylookups, men samma mängd av resten.
 
-Kvadratiska naivt men går att göra bättre:
+#Kvadratiska naivt men går att göra bättre:
 
 * konkatenering av n strängar (utskrift) => linjärt med en stringbuilder (dynamisk char array)
 
@@ -23,8 +28,9 @@ Kvadratiska naivt men går att göra bättre:
 * sortering med quicksort (Arrays.sort(int [])) => mergesort: Arrays.sort(Integer []) i java.
 	 * quicksort kan bli kvadratisk för obskyra inputs vilket ibland finns.
 
-Vilket spårk bör man använda?
+#Vilket spårk bör man använda?
 Scala är inte supported på kattis :(((((
+
 Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 Supported språk är:
@@ -61,7 +67,7 @@ C++:
 
 - Få av oss kan det ordentligt (inklusive jag).
 
-Att ta med sig:
+#Att ta med sig:
 
 * Välj ett språk och byt enbart om ni bestämt er för att koda grafalgoritmer i java om ni har python som standardspråk. 
 
@@ -69,7 +75,8 @@ Att ta med sig:
 
 * Om det är första gången man är med i en tävling tror jag det mest är trassel att försöka lära sig/använda ovana språk. Oftast finns det fler problem som man kan försöka lösa istället, vilket jag rekomenderar.
 
-Dagens upplägg:
+#Dagens upplägg:
 
 * problem A kommer vara enkelt, börja att lösa det för att vänja er vid kattis.
-* resten av problemen kommer inte att ligga i svårighetsordning. Det gäller att leta reda på de enkla problemen i början.
+
+* Resten av problemen kommer inte att ligga i svårighetsordning. Det gäller att leta reda på de enkla problemen i början.
