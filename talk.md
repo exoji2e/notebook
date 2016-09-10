@@ -1,22 +1,28 @@
 hur angriper man ett problem?
-aaaahh:
-tutorial kattis
+Problem aaaahh på kattis
+
 
 kolla på input och fundera på om din lösning är snabb nog:
-n > [300000-10^9] => O(n)
-n = [10000-300000] => O(nlogn)
-n = [1000-10000] => O(n^2)
-n = [100-1000] => O(n^3)
-n < 30 => O(2^n)
-n < 15 => O(4^n)
+
+* n > [300000,10^9] => O(n)
+* n = [10000,300000] => O(nlogn)
+* n = [1000,10000] => O(n^2)
+* n = [100,1000] => O(n^3)
+* n < 30 => O(2^n)
+* n < 15 => O(4^n)
+
 i c/c++ har man ca 10^9 operationer (arraylookups/addition/multiplikation/jämförelser per sekund på kattis)
 i java har man ca 5*10^8 arraylookups, men samma mängd av resten.
 
 saker som är kvadratiska naivt men går att göra bättre:
-konkatenering av n strängar (utskrift) => linjärt med en stringbuilder (dynamisk char array)
-sortering med bubblesort => använd mergesort Arrays.sort(Object []) i java
-sortering med quicksort (Arrays.sort(int [])) => mergesort: Arrays.sort(Integer []) i java.
-quicksort kan bli kvadratisk för obskyra inputs vilket ibland finns.
+
+* konkatenering av n strängar (utskrift) => linjärt med en stringbuilder (dynamisk char array)
+
+* sortering med bubblesort => använd mergesort Arrays.sort(Object []) i java
+
+* sortering med quicksort (Arrays.sort(int [])) => mergesort: Arrays.sort(Integer []) i java.
+
+* quicksort kan bli kvadratisk för obskyra inputs vilket ibland finns.
 
 Vilket spårk bör man använda?
 Scala är inte supported på kattis :(((((
@@ -48,10 +54,6 @@ Java:
 
 - Scanner är seg. om inputen är > 10^5: Använd Kattio (en klass som ligger på open.kattis.com för snabbare inläsning i java) eller BufferedReader direkt.
 - Access i en array är långsammare än i c/c++. Om tidsgränsen är tight satt, använd en endimensionell array istället för en flerdimensionell.
-om int n[][] = new int[n][m];
-så kan den sitället göras som:
-int n[] = new int[n*m];
-och n[i][j] <=> n[i*m + j]
 
 C++:
 
