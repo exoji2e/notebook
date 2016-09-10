@@ -14,15 +14,14 @@ kolla på input och fundera på om din lösning är snabb nog:
 i c/c++ har man ca 10^9 operationer (arraylookups/addition/multiplikation/jämförelser per sekund på kattis)
 i java har man ca 5*10^8 arraylookups, men samma mängd av resten.
 
-saker som är kvadratiska naivt men går att göra bättre:
+Kvadratiska naivt men går att göra bättre:
 
 * konkatenering av n strängar (utskrift) => linjärt med en stringbuilder (dynamisk char array)
 
 * sortering med bubblesort => använd mergesort Arrays.sort(Object []) i java
 
 * sortering med quicksort (Arrays.sort(int [])) => mergesort: Arrays.sort(Integer []) i java.
-
-* quicksort kan bli kvadratisk för obskyra inputs vilket ibland finns.
+	 * quicksort kan bli kvadratisk för obskyra inputs vilket ibland finns.
 
 Vilket spårk bör man använda?
 Scala är inte supported på kattis :(((((
