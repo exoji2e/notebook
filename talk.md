@@ -225,35 +225,8 @@ Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 
 
-#Att ta med sig:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* Välj ett språk och byt enbart om ni bestämt er för att koda grafalgoritmer i java om ni har python som standardspråk. 
-
-* Eller ok, man kan byta språk. Men om man vill implementera samma algoritm i ett annat språk skall det finnas en mycket god anledning. En O(n^2) algoritm på input av n = 10^5 kommer aldrig att fungera oavsett språk.
-
-* Om det är första gången man är med i en tävling tror jag det mest är trassel att försöka lära sig/använda ovana språk. Oftast finns det fler problem som man kan försöka lösa istället, vilket jag rekomenderar.
-
-
-
-
-
-
-#Dagens upplägg:
+# Dagens upplägg:
 
 
 
@@ -279,3 +252,29 @@ Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 * Lag om max 3, använd bara ett kattis account.
 
+
+
+# Kom ihåg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Välj ett språk och byt inte.
+
+* Skojja bara, man får byta språk, men oftast kommer det inte hjälpa. Oftast bättre att byta problem.
+
+* Hitta dem lätta problemen
+
+* Använd snabb scanner om ni köra java.
