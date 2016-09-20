@@ -250,7 +250,21 @@ Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 * Resten av problemen kommer inte att ligga i svårighetsordning. Det gäller att leta reda på de enkla problemen i början.
 
+
+
+### Regler
+
 * Lag om max 3, använd bara ett kattis account.
+
+* Man får ett poäng per löst problem.
+
+* man sorterar först på antal lösta problem,
+
+* sedan på sum(t) + w*20,
+
+* där t är tiden det tog att lösa ett problem,
+
+* och w totala antalet felaktiga försök på lösta problem.
 
 
 
