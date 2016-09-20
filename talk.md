@@ -1,5 +1,6 @@
 # Hur angriper man ett problem?
 Problem aaaahh på kattis:
+https://open.kattis.com/problems/aaah
 
 * kolla på input/output
 * läs problemet nedifrån och upp om in/out är litet.
@@ -59,6 +60,8 @@ Java:
 
 - Scanner är seg. om inputen är > 10^5: Använd Kattio (en klass som ligger på open.kattis.com för snabbare inläsning i java) eller BufferedReader direkt.
 - Access i en array är långsammare än i c/c++. Om tidsgränsen är tight satt, använd en endimensionell array istället för en flerdimensionell.
+
+https://open.kattis.com/download/Kattio.java?1a0093
 
 C++:
 
