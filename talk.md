@@ -192,12 +192,35 @@ Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 
 
+# Eclipse - Just dont.
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
++ Autocompletion. (men här böjrar man från scratch, man vill ha koll på dokumentationen innan man börjar skriva sin lösning)
+
+- Appendar package till filer vilket måste tas bort.
+
+- Consolens output är liten
+
+- Jag började programmera i Eclipse när jag började här - it was a trap.
+
+- Nu kodar ni under tidspress, eclipse hjälper er inte med den.
+
+* Alternativ: VIM, Atom, Emacs, (Sublime)
 
 
 
