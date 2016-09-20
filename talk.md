@@ -187,7 +187,7 @@ Det språk du är mest bekväm i, som finns på kattis, dvs inte scala.
 
 + Standardspråket för tävlingsprogrammering. 
 
-- Få av oss kan det ordentligt (inklusive jag).
+- Få av oss kan det ordentligt (inklusive mig).
 
 
 
