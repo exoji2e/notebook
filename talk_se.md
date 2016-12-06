@@ -56,7 +56,7 @@ i java har man ca 5*10^8 arraylookups, men samma mängd av resten.
 
 
 
-#Vilket spårk bör man använda?
+#Vilket språk bör man använda?
 
 
 
