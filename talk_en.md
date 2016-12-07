@@ -65,3 +65,8 @@ Cons:
 * The output and input in the console is to small and can't handle EOF-character correctly.
 * You code time preassured, having to navigate with the mouse doesn't help with that. Also Error messages are very annoying.
 * When I started to code I started in Eclipse and it was a trap. Since I started using normal texteditors/vim I've felt free.
+
+Reccomendations and Alternatives:
+* Vim/nvim master race - actually I've just started using vim, but I really like it you feel really efficient.
+* Emacs - If you dont care about your pinky ;)
+* Atom/sublime - I have used these a lot. Sublime is still my goto editor when I need to do something really fast (dec2016). These are the editors I'd recommend using for someone new or someone who has only used eclipse be4. Just basig TextEditing with syntaxhighlighting and snippets. Out of the box they do no black magic.
