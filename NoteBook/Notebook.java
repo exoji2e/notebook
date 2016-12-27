@@ -1,4 +1,25 @@
 //TODO: split into smaller files that TeX can read and generate a good pdf from.
+//Fenwick-tree/Binary-Indexed-Tree
+private static class BIT {
+    long[] data;
+    public BIT(int size) {
+        data = new long[size+1];
+    }
+    public void update(int i, int delta) {
+        while(i< data.length) {
+            data[i] += delta;
+            i += i&-i; // Integer.lowestOneBit(i);
+        }
+    }
+    public long sum(int i) {
+        long sum = 0;
+        while(i>0) {
+            sum += data[i];
+            i -= i&-i;
+        }
+        return sum;
+    }
+}
 //Segmentträd
 private static class STNode {
     int leftIndex;
