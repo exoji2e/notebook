@@ -9,7 +9,7 @@ static ST makeSgmTree(int[] A, int l, int r) {
     ST node = new ST();
     node.li = l;
     node.ri = r;
-    node.sum = A[l];
+    node.sum = A[l]; //max/min
     return node;
   }
   int mid = (l+r)/2;
@@ -18,7 +18,7 @@ static ST makeSgmTree(int[] A, int l, int r) {
   ST root = new ST();
   root.li = lN.li;
   root.ri = rN.ri;
-  root.sum = lN.sum + rN.sum;
+  root.sum = lN.sum + rN.sum; //max/min
   root.lN = lN;
   root.rN = rN;
   return root;
@@ -31,19 +31,16 @@ static int getSum(ST root, int l, int r) {//max/min
   else //max/min
     return getSum(root.lN,l,r) + getSum(root.rN,l,r);
 }
-static int update(ST root, int index, int val) {
+static int update(ST root, int i, int val) {
   int diff = 0;
-  if(root.li==root.ri && index == root.li) {
+  if(root.li==root.ri && i == root.li) {
     diff = val-root.sum; //max/min
     root.sum=val; //max/min
     return diff; //root.max
   }
   int mid = (root.li + root.ri) / 2;
-  if (index <= mid) {
-    diff= update(root.lN, index, val);
-  } else {
-    diff= update(root.rN, index, val);
-  }
+  if (i <= mid) diff = update(root.lN, i, val);
+  else diff = update(root.rN, i, val);
   root.sum+=diff; //ask other child
   return diff; //and compute max/min
 }
