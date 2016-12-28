@@ -1,0 +1,59 @@
+\documentclass[8pt,a4paper,landscape,oneside]{amsart}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{subcaption}
+\usepackage[scaled]{beramono}
+\usepackage{titling}
+\usepackage{datetime}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+% Minted
+\usepackage{minted}
+\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1]{cpp}{code/#1}}
+
+\pagestyle{fancy}
+\lhead{Lund University}
+\rhead{\thepage}
+\cfoot{}
+\setlength{\headheight}{15.2pt}
+\setlength{\droptitle}{-20pt}
+\posttitle{\par\end{center}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+\begin{multicols*}{3}
+%\maketitle
+\thispagestyle{fancy}
+\vspace{-3em}
+
+\tableofcontents
+\section{Code Templates}
+    \subsection{Java Template}
+        A Java template.
+        \code{template.java}
+    \subsection{Python Template}
+        A Python template
+        \code{template.py}
+    \subsection{C++ Template}
+        A C$++$ template
+        \code{template.cpp}
+    \subsection{Fast IO Java}
+        Kattio with easier names
+        \code{fastio.java}
+
+\section{Data Structures}
+    \subsection{Binary Indexed Tree}
+        Also called a fenwick tree. Builds in O(n log n), answers what is the sum form 0 to i in O(log n) and updates an element in O(log n).
+        \code{DS/BIT.java}
+\end{multicols*}
+\end{document}
