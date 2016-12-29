@@ -29,6 +29,8 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\newcommand{\bigO}{\mathcal{O}}
+
 \begin{document}
 
 \begin{multicols*}{3}
@@ -53,7 +55,7 @@
 
 \section{Data Structures}
     \subsection{Binary Indexed Tree}
-        Also called a fenwick tree. Builds in O(n log n), answers what is the sum from 0 to i in O(log n) and updates an element in O(log n).
+        Also called a fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
         \code{DS/BIT.java}
     \subsection{Segment Tree}
         More general than a fenwick tree. Can adapt other operations than sum, e.g. min and max.
@@ -61,5 +63,9 @@
     \subsection{Union Find}
         This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
         \code{DS/UF.java}
+\section{Graph Algorithms}
+    \subsection{Djikstras algorithm}
+        Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
+        \code{Graphs/Djikstra.java}
 \end{multicols*}
 \end{document}
