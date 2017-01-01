@@ -63,6 +63,9 @@
     \subsection{Union Find}
         This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
         \code{DS/UF.java}
+    \subsection{Monotone Queue}
+        Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
+        \code{DS/MinMonQue.java}
 \section{Graph Algorithms}
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
