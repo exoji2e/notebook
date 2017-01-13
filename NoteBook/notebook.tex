@@ -14,6 +14,7 @@
 \usepackage{datetime}
 \usepackage{enumitem}
 \usepackage{multicol}
+\usepackage{bm}
 
 % Minted
 \usepackage{minted}
@@ -70,5 +71,9 @@
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
         \code{Graphs/Djikstra.java}
+\section{Etc}
+    \subsection{System of Equations}
+        Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
+        \code{Etc/SolveSystem.java}
 \end{multicols*}
 \end{document}
