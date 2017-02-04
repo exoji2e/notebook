@@ -1,3 +1,4 @@
+//Requires java.util.LinkedList and java.util.TreeSet
 private static class Node implements Comparable<Node>{
   LinkedList<Edge> edges;
   int w;
@@ -5,6 +6,7 @@ private static class Node implements Comparable<Node>{
   public Node(int id) {
     w = Integer.MAX_VALUE;
     this.id = id;
+    edges = new LinkedList<Edge> edges;
   }
   public int compareTo(Node n) {
     if(w != n.w) return w - n.w;
@@ -23,11 +25,11 @@ private static class Node implements Comparable<Node>{
         if(other.w > e.cost + curr.w) {
           set.remove(other);
           other.w = e.cost + curr.w;
-          set.add(other);      
-        } 
-      } 
+          set.add(other);
+        }
+      }
     }
-    return -1;  
+    return -1;
   }
 }
 private static class Edge {
@@ -38,4 +40,3 @@ private static class Edge {
     cost = c;
   }
 }
-
