@@ -1,12 +1,11 @@
 //Requires java.util.LinkedList and java.util.TreeSet
 private static class Node implements Comparable<Node>{
-  LinkedList<Edge> edges;
+  LinkedList<Edge> edges = new LinkedList<>();
   int w;
   int id;
   public Node(int id) {
     w = Integer.MAX_VALUE;
     this.id = id;
-    edges = new LinkedList<Edge> edges;
   }
   public int compareTo(Node n) {
     if(w != n.w) return w - n.w;
