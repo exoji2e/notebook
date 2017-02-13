@@ -3,7 +3,7 @@ private class Node {
   int h;
   public Node() {
     parent = this;
-    height = 0;
+    h = 0;
   }
   public Node find() {
     if(parent != this) parent = parent.find();
