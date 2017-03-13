@@ -59,7 +59,7 @@
         Also called a fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
         \code{DS/BIT.java}
     \subsection{Segment Tree}
-        More general than a fenwick tree. Can adapt other operations than sum, e.g. min and max.
+        More general than a fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
         \code{DS/ST.java}
     \subsection{Union Find}
         This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
@@ -71,6 +71,9 @@
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
         \code{Graphs/Djikstra.java}
+    \subsection{Bipartite Graphs}
+        The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Könings theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
+        \code{Graphs/BiGraph.java}
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
