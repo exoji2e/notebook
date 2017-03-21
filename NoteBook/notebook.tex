@@ -61,6 +61,9 @@
     \subsection{Segment Tree}
         More general than a fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
         \code{DS/ST.java}
+    \subsection{Lazy Segment Tree}
+        More general implementation of a segment tree where its possible to increase whole segments by some diff, with lazy propagation. Implemented with arrays instead of nodes, which probably has less overhead to write during a competition.
+        \code{DS/LazySegmentTree.java}
     \subsection{Union Find}
         This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
         \code{DS/UF.java}
