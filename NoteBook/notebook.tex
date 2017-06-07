@@ -77,6 +77,10 @@
     \subsection{Bipartite Graphs}
         The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Könings theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
         \code{Graphs/BiGraph.java}
+    \subsection{Network Flow}
+        The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
+        If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
+        \code{Graphs/NetworkFlow.java}
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
