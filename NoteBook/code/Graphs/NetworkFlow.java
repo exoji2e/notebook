@@ -52,7 +52,8 @@ class FlowNetwork {
     }
   }
 
-  LinkedList<Edge> find_path(Node s, Node t, List<Edge> path){
+  LinkedList<Edge> find_path(Node s, Node t, 
+          List<Edge> path){
     reset();
     LinkedList<Node> active = new LinkedList<>();
     active.add(s);

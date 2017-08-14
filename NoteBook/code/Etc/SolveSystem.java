@@ -1,5 +1,5 @@
 //Computes A^-1 * b
-public static double[] solve(double[][] A, double[] b) {
+static double[] solve(double[][] A, double[] b) {
   int N = b.length;
   // Gaussian elimination with partial pivoting
   for (int i = 0; i < N; i++) {
