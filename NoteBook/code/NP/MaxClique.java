@@ -1,4 +1,4 @@
-static int max_clique(int n, int[][] board) {
+static int max_clique(int n, int[][] adj) {
   int fst = n/2;
   int snd = n - fst;
   int[] maxc = new int[1<<fst];
@@ -11,7 +11,7 @@ static int max_clique(int n, int[][] board) {
     boolean ok = true;
     for(int a = 0; a<fst; a++) if((i&1<<a) != 0) {
       for(int b = a+1; b<fst; b++) {
-          if((i&1<<b) != 0 && board[a][b] == 0) 
+          if((i&1<<b) != 0 && adj[a][b] == 0) 
               ok = false;
       }
     }
@@ -25,7 +25,7 @@ static int max_clique(int n, int[][] board) {
     for(int a = 0; a<snd; a++) if((i&1<<a) != 0) {
       for(int b = a+1; b<snd; b++) {
         if((i&1<<b) != 0)
-          if(board[a+fst][b+fst] == 0) 
+          if(adj[a+fst][b+fst] == 0) 
             ok = false;
       }
     }
@@ -35,7 +35,7 @@ static int max_clique(int n, int[][] board) {
       ok = true;
       for(int b = 0; b<snd; b++) {
         if((i&1<<b) != 0) {
-          if(board[a][b+fst] == 0) ok = false;
+          if(adj[a][b+fst] == 0) ok = false;
         }
       }
       if(ok) mask |= (1<<a);
