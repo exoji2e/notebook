@@ -70,6 +70,7 @@
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
         \code{DS/MinMonQue.java}
+
 \section{Graph Algorithms}
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
@@ -81,6 +82,7 @@
         The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
         \code{Graphs/NetworkFlow.java}
+
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
@@ -88,9 +90,15 @@
     \subsection{Knuuth Morris Pratt substring}
         Finds if $\bm{w}$ is a subarray to $\bm{s}$ in linear time. 
         \code{DP/kmp.java}
+
 \section{Etc}
     \subsection{System of Equations}
         Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
         \code{Etc/SolveSystem.java}
+
+\section{NP tricks}
+    \subsection{MaxClique}
+        The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the lagest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runns in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conqurer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
+        \code{NP/MaxClique.java}
 \end{multicols*}
 \end{document}
