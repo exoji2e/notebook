@@ -24,8 +24,8 @@ public class ConvexHull {
     return dx1*dy2 - dx2*dy1;
   }
   Point[] convexHull(Point[] S) {
-    // find a point on th econvex hull.
     int N = S.length;
+    // find a point on the convex hull.
     Point xmin = S[0];
     int id = 0;
     for(int i = 0; i<N; i++) {
@@ -39,7 +39,7 @@ public class ConvexHull {
     S[id] = S[N-1];
     S[N-1] = xmin;
     Point.xmin = xmin;
-    // Sort on angle of xmin.
+    // Sort on angle to xmin.
     Arrays.sort(S, 0, N-1);
     Point[] H = new Point[N+1];
     H[0] = S[N-2];
@@ -47,6 +47,7 @@ public class ConvexHull {
     for(int i = 0; i<N-1; i++)
       H[i+2] = S[i];
     int M = 1;
+    // swipe over the points
     for(int i = 2; i<=N; i++) {
       while(cross(H[M-1],H[M],H[i]) <= 0) {
         if(M>1)
