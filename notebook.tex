@@ -21,7 +21,7 @@
 \newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1]{cpp}{code/#1}}
 
 \pagestyle{fancy}
-\lhead{Lund University}
+\lhead{Cache Flow - Lund University}
 \rhead{\thepage}
 \cfoot{}
 \setlength{\headheight}{15.2pt}
@@ -95,6 +95,9 @@
     \subsection{System of Equations}
         Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
         \code{Etc/SolveSystem.java}
+    \subsection{Convex Hull}
+        From a collection of points in the plane the convex hull is often used to compute the largest distance or the area covered, or the length of a rope that encloses the points. It can be found in $\bigO (N\log{N})$ time by sorting the points on angle and the sweeping over all of them.
+        \code{Etc/ConvexHull.java}
 
 \section{NP tricks}
     \subsection{MaxClique}
