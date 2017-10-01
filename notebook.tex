@@ -103,5 +103,32 @@
     \subsection{MaxClique}
         The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the lagest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runns in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conqurer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
         \code{NP/MaxClique.java}
+\section{Coordinate Geometry}
+    \subsection{Area of a nonintersecting polygon}
+        The signed area of a polygon with n verticies is given by 
+        $$A = \frac{1}{2}\sum_{i=0}^{n-1}(x_iy_{i+1} - x_{i+1}y_i)$$
+    \subsection{Intersection of two lines}
+        Two lines defined by 
+        \begin{align*}
+            a_1x + b_1y + c_1 &= 0 \\
+            a_2x + b_2y + c_2 &= 0 
+        \end{align*}
+        Intersects in the point 
+        $$P = (\frac{b_1c_2 - b_2c_1}{w}, \frac{a_2c_1 - a_1c_2}{w}),$$
+        where $w = a_1b_2 - a_2b_1$. If $w = 0$ the lines are parallell.
+        \subsection{Distance between line segment and point}
+        Given a linesegment between point $P, Q$, the distance D to point $R$ is given by:
+        \begin{align*}
+            a &= Q_y - P_y \\
+            b &= Q_x - P_x \\
+            c &= P_xQ_y - P_yQ_x \\
+            R_P &= (\frac{b(bR_x - aR_y) - ac}{a^2 + b^2}, \frac{a(aR_y - bR_x) - bc}{a^2 + b^2}) \\
+            D &= 
+            \begin{cases}
+                \frac{|aR_x + bR_y + c|}{\sqrt{a^2 + b^2}} & \text{if $(R_{P_x}- P_x)(R_{P_x} - Q_x) < 0$}, \\
+                \min{|P - R|, |Q - R|} & \text{otherwise}
+            \end{cases}
+        \end{align*}
+
 \end{multicols*}
 \end{document}
