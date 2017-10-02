@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 int lis(vector<int> *X1) {
@@ -28,4 +29,11 @@ int lis(vector<int> *X1) {
 		k=P[k];
 	}
 	return L; //or S
+}
+int main() {
+	vector<int> X;
+	for (int i = 0; i<10; i++)  X.push_back(i);
+	cout << lis(&X) << endl; //prints "10"	
+
+	return 0;
 }

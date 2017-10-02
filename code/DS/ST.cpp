@@ -1,3 +1,4 @@
+#######NOT WORKING, UNEXPECTED BEHAVIOUR PROBABLY DUE TO PROBLEMS WITH POINTERS##########
 #include <vector>
 #include <iostream>
 using namespace std;
