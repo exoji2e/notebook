@@ -85,93 +85,93 @@ def p(P):
 # prints common points between
 # two segments AB and CD.
 def SegSeg(A, B, C, D):
-    eqa = A == B
-    eqc = C == D
-    if eqa and eqc:
-        if A == C:
-            p(A)
-            return True
-        return False
-    if eqc:
-        eqa, A, B, C, D = (eqc, C, D, A, B)
-    if eqa:
-        l = pts2line(C, D)
-        if (l[0]*A[0] + l[1]*A[1] + l[2] == 0 and 
-            inside(A[0], C[0], D[0]) and 
-            inside(A[1], C[1], D[1])):
-            p(A)
-            return True
-        return False
-
-    A, B = tuple(sorted([A,B]))
-    C, D = tuple(sorted([C,D]))
-    l1 = pts2line(A, B)
-    l2 = pts2line(C, D)
-    if l1[0]*l2[1] == l1[1]*l2[0]:
-        if l1[0]*l2[2] == l1[2]*l2[0]:
-            if overlap(A, B, C, D):
-                if B == C:
-                    p(B)
-                    return True
-                if D == A:
-                    p(A)
-                    return True
-                s = sorted([A,B,C,D])
-                p(s[1])
-                p(s[2])
-                return True
-            else:
-                return False
-        else:
-            return False
-    ix, iy = inters(l1, l2)
-    if (inside(ix, A[0], B[0]) and 
-        inside(iy, A[1], B[1]) and 
-        inside(ix, C[0], D[0]) and 
-        inside(iy, C[1], D[1])):
-        p((ix, iy))
-        return True
+  eqa = A == B
+  eqc = C == D
+  if eqa and eqc:
+    if A == C:
+      p(A)
+      return True
     return False
+  if eqc:
+    eqa, A, B, C, D = (eqc, C, D, A, B)
+  if eqa:
+    l = pts2line(C, D)
+    if (l[0]*A[0] + l[1]*A[1] + l[2] == 0 and 
+      inside(A[0], C[0], D[0]) and 
+      inside(A[1], C[1], D[1])):
+      p(A)
+      return True
+    return False
+
+  A, B = tuple(sorted([A,B]))
+  C, D = tuple(sorted([C,D]))
+  l1 = pts2line(A, B)
+  l2 = pts2line(C, D)
+  if l1[0]*l2[1] == l1[1]*l2[0]:
+    if l1[0]*l2[2] == l1[2]*l2[0]:
+      if overlap(A, B, C, D):
+        if B == C:
+          p(B)
+          return True
+        if D == A:
+          p(A)
+          return True
+        s = sorted([A,B,C,D])
+        p(s[1])
+        p(s[2])
+        return True
+      else:
+        return False
+    else:
+      return False
+  ix, iy = inters(l1, l2)
+  if (inside(ix, A[0], B[0]) and 
+    inside(iy, A[1], B[1]) and 
+    inside(ix, C[0], D[0]) and 
+    inside(iy, C[1], D[1])):
+    p((ix, iy))
+    return True
+  return False
 
 # Intersections between circles
 def intersections(c1, c2):
-    x1, y1, r1 = c1
-    x2, y2, r2 = c2
-    if x1 == x2 and y1 == y2 and r1 == r2:
-        return False
-    if r1 > r2:
-        x1, y1, r1, x2, y2, r2 = (x2, y2, r2, x1, y1, r1)
-    dist2 = (x1 - x2)*(x1-x2) + (y1 - y2)*(y1 - y2)
-    rsq = (r1 + r2)*(r1 + r2)
-    if dist2 > rsq or dist2 < (r1-r2)*(r1-r2):
-        return []
-    elif dist2 == rsq:
-        cx = x1 + (x2-x1)*r1/(r1+r2)
-        cy = y1 + (y2-y1)*r1/(r1+r2)
-        return [(cx, cy)]
-    elif dist2 == (r1-r2)*(r1-r2):
-        cx = x1 - (x2-x1)*r1/(r2-r1)
-        cy = y1 - (y2-y1)*r1/(r2-r1)
-        return [(cx, cy)]
+  x1, y1, r1 = c1
+  x2, y2, r2 = c2
+  if x1 == x2 and y1 == y2 and r1 == r2:
+    return False
+  if r1 > r2:
+    x1, y1, r1, x2, y2, r2 = (x2, y2, r2, x1, y1, r1)
+  dist2 = (x1 - x2)*(x1-x2) + (y1 - y2)*(y1 - y2)
+  rsq = (r1 + r2)*(r1 + r2)
+  if dist2 > rsq or dist2 < (r1-r2)*(r1-r2):
+    return []
+  elif dist2 == rsq:
+    cx = x1 + (x2-x1)*r1/(r1+r2)
+    cy = y1 + (y2-y1)*r1/(r1+r2)
+    return [(cx, cy)]
+  elif dist2 == (r1-r2)*(r1-r2):
+    cx = x1 - (x2-x1)*r1/(r2-r1)
+    cy = y1 - (y2-y1)*r1/(r2-r1)
+    return [(cx, cy)]
 
-    d = math.sqrt(dist2)
-    f = (r1*r1 - r2*r2 + dist2)/(2*dist2)
-    xf = x1 + f*(x2-x1)
-    yf = y1 + f*(y2-y1)
-    dx = xf-x1
-    dy = yf-y1
-    h = math.sqrt(r1*r1 - dx*dx - dy*dy)
-    norm = abs(math.hypot(dx, dy))
-    p1 = (xf + h*(-dy)/norm, yf + h*(dx)/norm)
-    p2 = (xf + h*(dy)/norm, yf + h*(-dx)/norm)
-    return sorted([p1, p2])
+  d = math.sqrt(dist2)
+  f = (r1*r1 - r2*r2 + dist2)/(2*dist2)
+  xf = x1 + f*(x2-x1)
+  yf = y1 + f*(y2-y1)
+  dx = xf-x1
+  dy = yf-y1
+  h = math.sqrt(r1*r1 - dx*dx - dy*dy)
+  norm = abs(math.hypot(dx, dy))
+  p1 = (xf + h*(-dy)/norm, yf + h*(dx)/norm)
+  p2 = (xf + h*(dy)/norm, yf + h*(-dx)/norm)
+  return sorted([p1, p2])
 
 # Finds the bisector through origo
 # between two points by normalizing.
 def bisector(p1, p2):
-    d1 = math.hypot(p1[0], p2[1])
-    d2 = math.hypot(p2[0], p2[1])
-    return ((p1[0]/d1 + p2[0]/d2),
-            (p1[1]/d1 + p2[1]/d2))
+  d1 = math.hypot(p1[0], p2[1])
+  d2 = math.hypot(p2[0], p2[1])
+  return ((p1[0]/d1 + p2[0]/d2),
+          (p1[1]/d1 + p2[1]/d2))
 
 
