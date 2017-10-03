@@ -70,7 +70,11 @@
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
         \code{DS/MinMonQue.java}
-
+    \subsection{Treap}
+        Treap is a binary search tree that uses randomization to balance itself. 
+        It's easy to implement, and gives you access to the internal structures of a binary tree, 
+        which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a prefectly balanced tree.
+        \code{DS/Treap.java}
 \section{Graph Algorithms}
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
