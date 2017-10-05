@@ -143,8 +143,46 @@
                 \min{|P - R|, |Q - R|} & \text{otherwise}
             \end{cases}
         \end{align*}
+    \subsection{Picks theorem}
+        Find the amount of internal integer coordinates $i$ inside a polygon with picks theorem
+        $A = \frac{b}{2} + i - 1$, where $A$ is the area of the polygon and 
+        $b$ is the amount of coordinates on the boundary.
     \subsection{Implementations}
         \code{Geometry/geometry.py}
+\section{Acieving AC on a solved problem}
+    \subsection{WA}
+        \begin{itemize}
+        \item Check that minimal input passes.
+        \item Can an int overflow?
+        \item Reread the problem statement.
+        \item Start creating small testcases with python.
+        \item Does cout print with high enough precision?
+        \item Abstract the implementation.
+        \end{itemize}
+    \subsection{TLE}
+        \begin{itemize}
+        \item Is the solution sanity checked?
+        \item Use pypy instead of python.
+        \item Rewrite in C++ or Java.
+        \item Can we apply DP anywhere?
+        \item To minimize penalty time you should create a worst case input (if easy) to test on.
+        \end{itemize}
+    \subsection{RTE}
+        \begin{itemize}
+        \item Recursion limit in python?
+        \item Arrayindex out of bounds?
+        \item Division by $0$?
+        \item Modifying iterator while iterating over it?
+        \item Not using a well definied operator for Collections.sort?
+        \item If nothing makes sense and the end of the contest is approaching you 
+            can binary search over where the error is with try-except.
+        \end{itemize}
+    \subsection{MLE}
+        \begin{itemize}
+        \item Create objects outside recursive function.
+        \item Rewrite recursive solution to itterative with an own stack.
+        \end{itemize}
+
 
 
 \end{multicols*}
