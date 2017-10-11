@@ -19,7 +19,12 @@
 % Minted
 \usepackage{minted}
 \newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1]{cpp}{code/#1}}
-
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.1em\vspace{-1em}}%
+}
 \pagestyle{fancy}
 \lhead{Cache Flow - Lund University}
 \rhead{\thepage}
@@ -32,10 +37,14 @@
 
 \newcommand{\bigO}{\mathcal{O}}
 
+\title{Cache Flow}
+\subtitle{Team Reference Document}
+\date{\ddmmyyyydate{\today{}}}
+
 \begin{document}
 
 \begin{multicols*}{3}
-%\maketitle
+\maketitle
 \thispagestyle{fancy}
 \vspace{-3em}
 
@@ -97,9 +106,6 @@
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
         \code{DP/lis.java}
-    \subsection{Knuuth Morris Pratt substring}
-        Finds if $\bm{w}$ is a subarray to $\bm{s}$ in linear time. 
-        \code{DP/kmp.java}
     \subsection{String functions}
         The z-function computes the longest common prefix of $t$ and $t[i:]$ for each $i$ in $\bigO(|t|)$.
         The boarder function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
@@ -112,6 +118,8 @@
     \subsection{Convex Hull}
         From a collection of points in the plane the convex hull is often used to compute the largest distance or the area covered, or the length of a rope that encloses the points. It can be found in $\bigO (N\log{N})$ time by sorting the points on angle and the sweeping over all of them.
         \code{Etc/ConvexHull.java}
+    \subsection{Number Theory}
+        \code{Etc/numbertheory.py}
 
 \section{NP tricks}
     \subsection{MaxClique}
