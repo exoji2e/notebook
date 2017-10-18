@@ -176,13 +176,13 @@ def bisector(p1, p2):
 
 # Distance from P to origo
 def norm(P):
-    return (P[0]**2 + P[1]**2 + P[2]**2)**(0.5)
+  return (P[0]**2 + P[1]**2 + P[2]**2)**(0.5)
 
 # Finds ditance between point p
 # and line A + t*u in 3D
 def dist3D(A, u, p):
-    AP = tuple(A[i] - p[i] for i in range(3))
-    cross = tuple(AP[i]*u[(i+1)%3] - AP[(i+1)%3]*u[i] for i in range(3))
-    print(cross)
-    return norm(cross)/norm(u)
+  AP = tuple(A[i] - p[i] for i in range(3))
+  cross = tuple(AP[i]*u[(i+1)%3] - AP[(i+1)%3]*u[i] 
+    for i in range(3))
+  return norm(cross)/norm(u)
 
