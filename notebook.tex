@@ -101,6 +101,10 @@
         The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
         \code{Graphs/NetworkFlow.java}
+    \subsection{Min Cost Max Flow}
+        Finds the minimal cost of a maximum flow through a graph. 
+        Can be used for some optimization problems where the optimal assignment needs to be a maximum flow.
+        \code{Graphs/MinCostMaxFlow.java}
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
@@ -108,7 +112,7 @@
         \code{DP/lis.java}
     \subsection{String functions}
         The z-function computes the longest common prefix of $t$ and $t[i:]$ for each $i$ in $\bigO(|t|)$.
-        The boarder function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
+        The border function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
         \code{DP/strings.py}
 
 \section{Etc}
