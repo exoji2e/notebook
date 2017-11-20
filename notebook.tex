@@ -18,7 +18,11 @@
 
 % Minted
 \usepackage{minted}
-\newcommand{\code}[1]{\inputminted[fontsize=\normalsize,baselinestretch=1]{cpp}{code/#1}}
+\newcommand{\codej}[1]{\inputminted[fontsize=\large,baselinestretch=1]{java}{code/#1}}
+\newcommand{\codec}[1]{\inputminted[fontsize=\large,baselinestretch=1]{cpp}{code/#1}}
+\newcommand{\codep}[1]{\inputminted[fontsize=\large,baselinestretch=1]{py}{code/#1}}
+\newcommand{\codeb}[1]{\inputminted[fontsize=\large,baselinestretch=1]{bash}{code/#1}}
+\newcommand{\codev}[1]{\inputminted[fontsize=\large,baselinestretch=1]{vim}{code/#1}}
 \newcommand{\subtitle}[1]{%
   \posttitle{%
     \par\end{center}
@@ -31,6 +35,7 @@
 \cfoot{}
 \setlength{\headheight}{15.2pt}
 \setlength{\droptitle}{-20pt}
+
 \posttitle{\par\end{center}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -43,92 +48,93 @@
 
 \begin{document}
 
-\begin{multicols*}{3}
+\begin{multicols*}{2}
 \maketitle
 \thispagestyle{fancy}
 \vspace{-3em}
 
 \tableofcontents
+\begin{large}
 \section{Code Templates}
     \subsection{.bashrc}
         Aliases.
-        \code{.bashrc}
+        \codeb{.bashrc}
     \subsection{.vimrc}
         Tabs, linenumbers, wrapping
-        \code{.vimrc}
+        \codev{.vimrc}
     \subsection{Java Template}
         A Java template.
-        \code{template.java}
+        \codej{template.java}
     \subsection{Python Template}
         A Python template
-        \code{template.py}
+        \codep{template.py}
     \subsection{C++ Template}
         A C$++$ template
-        \code{template.cpp}
+        \codec{template.cpp}
     \subsection{Fast IO Java}
         Kattio with easier names
-        \code{fastio.java}
+        \codej{fastio.java}
 
 \section{Data Structures}
     \subsection{Binary Indexed Tree}
         Also called a fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
-        \code{DS/BIT.java}
+        \codej{DS/BIT.java}
     \subsection{Segment Tree}
         More general than a fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
-        \code{DS/ST.java}
+        \codej{DS/ST.java}
     \subsection{Lazy Segment Tree}
         More general implementation of a segment tree where its possible to increase whole segments by some diff, with lazy propagation. Implemented with arrays instead of nodes, which probably has less overhead to write during a competition.
-        \code{DS/LazySegmentTree.java}
+        \codej{DS/LazySegmentTree.java}
     \subsection{Union Find}
         This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
-        \code{DS/UF.java}
+        \codej{DS/UF.java}
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
-        \code{DS/MinMonQue.java}
+        \codej{DS/MinMonQue.java}
     \subsection{Treap}
         Treap is a binary search tree that uses randomization to balance itself. 
         It's easy to implement, and gives you access to the internal structures of a binary tree, 
         which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a prefectly balanced tree.
-        \code{DS/Treap.java}
+        \codej{DS/Treap.java}
 \section{Graph Algorithms}
     \subsection{Djikstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
-        \code{Graphs/Djikstra.java}
+        \codej{Graphs/Djikstra.java}
     \subsection{Bipartite Graphs}
         The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Könings theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
-        \code{Graphs/BiGraph.java}
+        \codej{Graphs/BiGraph.java}
     \subsection{Network Flow}
         The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
-        \code{Graphs/NetworkFlow.java}
+        \codej{Graphs/NetworkFlow.java}
     \subsection{Min Cost Max Flow}
         Finds the minimal cost of a maximum flow through a graph. 
         Can be used for some optimization problems where the optimal assignment needs to be a maximum flow.
-        \code{Graphs/MinCostMaxFlow.java}
+        \codej{Graphs/MinCostMaxFlow.java}
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
-        \code{DP/lis.java}
+        \codej{DP/lis.java}
     \subsection{String functions}
         The z-function computes the longest common prefix of $t$ and $t[i:]$ for each $i$ in $\bigO(|t|)$.
         The border function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
-        \code{DP/strings.py}
+        \codep{DP/strings.py}
 
 \section{Etc}
     \subsection{System of Equations}
         Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
-        \code{Etc/SolveSystem.java}
+        \codej{Etc/SolveSystem.java}
     \subsection{Convex Hull}
         From a collection of points in the plane the convex hull is often used to compute the largest distance or the area covered, or the length of a rope that encloses the points. It can be found in $\bigO (N\log{N})$ time by sorting the points on angle and the sweeping over all of them.
-        \code{Etc/ConvexHull.java}
+        \codej{Etc/ConvexHull.java}
     \subsection{Number Theory}
-        \code{Etc/numbertheory.py}
+        \codep{Etc/numbertheory.py}
 
 \section{NP tricks}
     \subsection{MaxClique}
         The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the lagest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runns in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conqurer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
-        \code{NP/MaxClique.java}
+        \codej{NP/MaxClique.java}
 \section{Coordinate Geometry}
     \subsection{Area of a nonintersecting polygon}
         The signed area of a polygon with n verticies is given by 
@@ -160,7 +166,7 @@
         $A = \frac{b}{2} + i - 1$, where $A$ is the area of the polygon and 
         $b$ is the amount of coordinates on the boundary.
     \subsection{Implementations}
-        \code{Geometry/geometry.py}
+        \codep{Geometry/geometry.py}
 \section{Acieving AC on a solved problem}
     \subsection{WA}
         \begin{itemize}
@@ -178,6 +184,7 @@
         \item Rewrite in C++ or Java.
         \item Can we apply DP anywhere?
         \item To minimize penalty time you should create a worst case input (if easy) to test on.
+        \item Binary Search over the answer?
         \end{itemize}
     \subsection{RTE}
         \begin{itemize}
@@ -206,11 +213,11 @@
     \item What happens if extra output is added? What about one extra new line or space?
     \item Look at documentation on judge.
     \item Submit a clar.
-    \item Print.
+    \item Print a file.
     \item Directory with test cases.
 \end{itemize}
 
 
-
+\end{large}
 \end{multicols*}
 \end{document}
