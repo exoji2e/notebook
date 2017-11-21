@@ -170,6 +170,11 @@
     \subsection{Josephus problem}
         Who is the last one to get removed from a circle if the k'th element is continously removed?
         \codep{DP/josephus.py}
+    \subsection{Floyd Warshall}
+        Constucts a matrix with the distance between all pairs of nodes in $\bigO(n^3)$ time.
+        Works for negative edge weights, but not if there exists negative cycles.
+        The nxt matrix is used to reconstruct a path. Can be skipped if we don't care about the path.
+        \codep{DP/floydwarshall.py}
 
 \section{Etc}
     \subsection{System of Equations}
