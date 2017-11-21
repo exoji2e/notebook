@@ -55,6 +55,56 @@
 
 \tableofcontents
 \begin{large}
+\section{Acieving AC on a solved problem}
+    \subsection{WA}
+        \begin{itemize}
+        \item Check that minimal input passes.
+        \item Can an int overflow?
+        \item Reread the problem statement.
+        \item Start creating small testcases with python.
+        \item Does cout print with high enough precision?
+        \item Abstract the implementation.
+        \end{itemize}
+    \subsection{TLE}
+        \begin{itemize}
+        \item Is the solution sanity checked?
+        \item Use pypy instead of python.
+        \item Rewrite in C++ or Java.
+        \item Can we apply DP anywhere?
+        \item To minimize penalty time you should create a worst case input (if easy) to test on.
+        \item Binary Search over the answer?
+        \end{itemize}
+    \subsection{RTE}
+        \begin{itemize}
+        \item Recursion limit in python?
+        \item Arrayindex out of bounds?
+        \item Division by $0$?
+        \item Modifying iterator while iterating over it?
+        \item Not using a well definied operator for Collections.sort?
+        \item If nothing makes sense and the end of the contest is approaching you 
+            can binary search over where the error is with try-except.
+        \end{itemize}
+    \subsection{MLE}
+        \begin{itemize}
+        \item Create objects outside recursive function.
+        \item Rewrite recursive solution to itterative with an own stack.
+        \end{itemize}
+\section{Ideas}
+    \subsection{A TLE solution is obvious}
+        \begin{itemize}
+        \item If doing dp, drop parameter and recover from others.
+        \item Use a sorted datastructure.
+        \item Is there a hint in the statement saying that something more is bounded?
+        \end{itemize}
+    \subsection{Try this on clueless problems}
+        \begin{itemize}
+        \item Try to interpret problem as a graph (D - NCPC2017).
+        \item Can we apply maxflow, with mincost?
+        \item How does it look for small examples, can we find a pattern?
+        \item Binary search over solution.
+        \item If problem is small, just brute force instead of solving it cleverly.
+            Some times its enough to iterate over the entire domains instead of using xgcd.
+        \end{itemize}
 \section{Code Templates}
     \subsection{.bashrc}
         Aliases.
@@ -167,40 +217,6 @@
         $b$ is the amount of coordinates on the boundary.
     \subsection{Implementations}
         \codep{Geometry/geometry.py}
-\section{Acieving AC on a solved problem}
-    \subsection{WA}
-        \begin{itemize}
-        \item Check that minimal input passes.
-        \item Can an int overflow?
-        \item Reread the problem statement.
-        \item Start creating small testcases with python.
-        \item Does cout print with high enough precision?
-        \item Abstract the implementation.
-        \end{itemize}
-    \subsection{TLE}
-        \begin{itemize}
-        \item Is the solution sanity checked?
-        \item Use pypy instead of python.
-        \item Rewrite in C++ or Java.
-        \item Can we apply DP anywhere?
-        \item To minimize penalty time you should create a worst case input (if easy) to test on.
-        \item Binary Search over the answer?
-        \end{itemize}
-    \subsection{RTE}
-        \begin{itemize}
-        \item Recursion limit in python?
-        \item Arrayindex out of bounds?
-        \item Division by $0$?
-        \item Modifying iterator while iterating over it?
-        \item Not using a well definied operator for Collections.sort?
-        \item If nothing makes sense and the end of the contest is approaching you 
-            can binary search over where the error is with try-except.
-        \end{itemize}
-    \subsection{MLE}
-        \begin{itemize}
-        \item Create objects outside recursive function.
-        \item Rewrite recursive solution to itterative with an own stack.
-        \end{itemize}
 \newpage
 \section{Practice Contest Checklist}
 \begin{itemize}
