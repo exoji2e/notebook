@@ -1,4 +1,4 @@
-def class Flow:
+class Flow:
     def __init__(self, sz):
         self.G = [[0]*sz for _ in range(sz)]
         self.adj = [[] for i in range(sz)]
