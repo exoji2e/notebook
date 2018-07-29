@@ -4,13 +4,17 @@ import math
 def dist(p, q):
   return math.hypot(p[0]-q[0], p[1] - q[1])
 
+# Square distance between two points
+def d2(p, q):
+  return (p[0] - q[0])**2 + (p[1] - q[1])**2
+
 # Converts two points to a line (a, b, c), 
 # ax + by + c = 0
 # if p == q, a = b = c = 0 
 def pts2line(p, q):
   return (-q[1] + p[1], 
-      q[0] - p[0], 
-      p[0]*q[1] - p[1]*q[0])
+          q[0] - p[0], 
+          p[0]*q[1] - p[1]*q[0])
 
 # Distance from a point to a line, 
 # given that a != 0 or b != 0 
@@ -25,7 +29,7 @@ def inters(l1, l2):
   a2,b2,c2 = l2
   cp = a1*b2 - a2*b1 
   if cp != 0:
-    return ((b1*c2 - b2*c1)/cp, (a2*c1 - a1*c2)/cp)
+    return float(b1*c2 - b2*c1)/cp, float(a2*c1 - a1*c2)/cp
   else:
     return False
 
@@ -33,114 +37,74 @@ def inters(l1, l2):
 def project(l, p):
   a, b, c = l
   return ((b*(b*p[0] - a*p[1]) - a*c)/(a*a + b*b), 
-      (a*(a*p[1] - b*p[0]) - b*c)/(a*a + b*b))
+    (a*(a*p[1] - b*p[0]) - b*c)/(a*a + b*b))
 
-# Finds the distance between a point, and
-# the Segment AB, the Ray AB and the line AB.
-# (distSeg, distHalfinf, distLine)
-def distSegP(P, Q, R):
-  a, b, c = pts2line(P, Q)
-  Rpx, Rpy = project((a,b,c), R)
-  dp = min(dist(P, R), dist(Q, R))
-  dl = distl((a,b,c), R)
-  if (inside(Rpx, P[0], Q[0]) and 
-          inside(Rpy, P[1], Q[1])):
-    return (dl, dl, dl)
-  if insideH((Rpx, Rpy), P, Q):
-    return (dp, dl, dl)
-  return (dp, dp, dl)
-
-# Finds if A <= i <= B.
-def inside(i, A, B):
-  return (i-A)*(i-B) <= 0
-
-# Finds if a point i on the line AB 
-# is on the segment AB.
-def insideS(i, A, B):
-  return (inside(i[0], A[0], B[0]) 
-    and inside(i[1], A[1], B[1]))
-
-# Finds if a point i on the line AB
-# is on the ray AB.
-def insideH(i, A, B):
-  return ((i[0] - A[0])*(A[0] - B[0]) <= 0 
-    and (i[1] - A[1])*(A[1] - B[1]) <= 0)
-
-# Finds if segment AB and CD overlabs.
+# Finds if segment AB and CD overlaps.
 def overlap(A, B, C, D):
-    if A[0] == B[0]:
-        return __overlap(A[1], B[1], C[1], D[1])
-    else:
-        return __overlap(A[0], B[0], C[0], D[0])
-# Helper functions
-def __overlap(x1, x2, x3, x4):
+  def __overlap(x1, x2, x3, x4):
     x1, x2 = (min(x1,x2), max(x1, x2))
     x3, x4 = (min(x3,x4), max(x3, x4))
     return x2 >= x3 and x1 <= x4
+  return (__overlap(A[0], B[0], C[0], D[0]) 
+    and __overlap(A[1], B[1], C[1], D[1]))
 
-# prints a point
-def p(P):
-    print(str(P[0]) + ' ' + str(P[1]))
 
-# prints common points between
-# two segments AB and CD.
+# Returns True if P is inside the segment AB
+# Assumes that P, A, B are collinear.
+def inside(P, A, B):
+  return max(d2(P, A), d2(P, B)) <= d2(A, B)
+
+# Returns a list with points:
+# 0 if segments AB does not overlap CD
+# 1 if segments intersect in one single point
+# 2 points describing the segment of overlap
 def SegSeg(A, B, C, D):
   eqa = A == B
   eqc = C == D
   if eqa and eqc:
     if A == C:
-      p(A)
-      return True
-    return False
+      return [A]
+    return []
   if eqc:
-    eqa, A, B, C, D = (eqc, C, D, A, B)
+    eqa, A, B, C, D = eqc, C, D, A, B
   if eqa:
     l = pts2line(C, D)
-    if (l[0]*A[0] + l[1]*A[1] + l[2] == 0 and 
-      inside(A[0], C[0], D[0]) and 
-      inside(A[1], C[1], D[1])):
-      p(A)
-      return True
-    return False
+    if l[0]*A[0] + l[1]*A[1] + l[2] == 0 and inside(A, C, D):
+      return [A]
+    return []
 
-  A, B = tuple(sorted([A,B]))
-  C, D = tuple(sorted([C,D]))
+  A, B = sorted([A,B])
+  C, D = sorted([C,D])
   l1 = pts2line(A, B)
   l2 = pts2line(C, D)
   if l1[0]*l2[1] == l1[1]*l2[0]:
     if l1[0]*l2[2] == l1[2]*l2[0]:
       if overlap(A, B, C, D):
         if B == C:
-          p(B)
-          return True
+          return [B]
         if D == A:
-          p(A)
-          return True
+          return [A]
         s = sorted([A,B,C,D])
-        p(s[1])
-        p(s[2])
-        return True
+        return s[1:3]
       else:
-        return False
+        return []
     else:
-      return False
+      return []
   ix, iy = inters(l1, l2)
-  if (inside(ix, A[0], B[0]) and 
-    inside(iy, A[1], B[1]) and 
-    inside(ix, C[0], D[0]) and 
-    inside(iy, C[1], D[1])):
-    p((ix, iy))
-    return True
-  return False
+  P = ix, iy #Beware of percision errors.
+  if inside(P, A, B) and inside(P, C, D):
+    return [P]
+  return []
 
 # Intersections between circles
 def intersections(c1, c2):
+  if c1[2] > c2[2]:
+      c1, c2 = c2, c1
   x1, y1, r1 = c1
   x2, y2, r2 = c2
   if x1 == x2 and y1 == y2 and r1 == r2:
     return False
-  if r1 > r2:
-    x1, y1, r1, x2, y2, r2 = (x2, y2, r2, x1, y1, r1)
+
   dist2 = (x1 - x2)*(x1-x2) + (y1 - y2)*(y1 - y2)
   rsq = (r1 + r2)*(r1 + r2)
   if dist2 > rsq or dist2 < (r1-r2)*(r1-r2):
