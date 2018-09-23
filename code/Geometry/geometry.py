@@ -39,63 +39,6 @@ def project(l, p):
   return ((b*(b*p[0] - a*p[1]) - a*c)/(a*a + b*b), 
     (a*(a*p[1] - b*p[0]) - b*c)/(a*a + b*b))
 
-# Finds if segment AB and CD overlaps.
-def overlap(A, B, C, D):
-  def __overlap(x1, x2, x3, x4):
-    x1, x2 = (min(x1,x2), max(x1, x2))
-    x3, x4 = (min(x3,x4), max(x3, x4))
-    return x2 >= x3 and x1 <= x4
-  return (__overlap(A[0], B[0], C[0], D[0]) 
-    and __overlap(A[1], B[1], C[1], D[1]))
-
-
-# Returns True if P is inside the segment AB
-# Assumes that P, A, B are collinear.
-def inside(P, A, B):
-  return max(d2(P, A), d2(P, B)) <= d2(A, B)
-
-# Returns a list with points:
-# 0 if segments AB does not overlap CD
-# 1 if segments intersect in one single point
-# 2 points describing the segment of overlap
-def SegSeg(A, B, C, D):
-  eqa = A == B
-  eqc = C == D
-  if eqa and eqc:
-    if A == C:
-      return [A]
-    return []
-  if eqc:
-    eqa, A, B, C, D = eqc, C, D, A, B
-  if eqa:
-    l = pts2line(C, D)
-    if l[0]*A[0] + l[1]*A[1] + l[2] == 0 and inside(A, C, D):
-      return [A]
-    return []
-
-  A, B = sorted([A,B])
-  C, D = sorted([C,D])
-  l1 = pts2line(A, B)
-  l2 = pts2line(C, D)
-  if l1[0]*l2[1] == l1[1]*l2[0]:
-    if l1[0]*l2[2] == l1[2]*l2[0]:
-      if overlap(A, B, C, D):
-        if B == C:
-          return [B]
-        if D == A:
-          return [A]
-        s = sorted([A,B,C,D])
-        return s[1:3]
-      else:
-        return []
-    else:
-      return []
-  ix, iy = inters(l1, l2)
-  P = ix, iy #Beware of percision errors.
-  if inside(P, A, B) and inside(P, C, D):
-    return [P]
-  return []
-
 # Intersections between circles
 def intersections(c1, c2):
   if c1[2] > c2[2]:

@@ -153,7 +153,7 @@
     \subsection{Network Flow}
         The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
-        \codej{Graphs/NetworkFlow.java}
+        \codep{Graphs/flow.py}
     \subsection{Min Cost Max Flow}
         Finds the minimal cost of a maximum flow through a graph. 
         Can be used for some optimization problems where the optimal assignment needs to be a maximum flow.
@@ -179,10 +179,10 @@
 \section{Etc}
     \subsection{System of Equations}
         Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
-        \codej{Etc/SolveSystem.java}
+        \codep{Etc/gauss.py}
     \subsection{Convex Hull}
         From a collection of points in the plane the convex hull is often used to compute the largest distance or the area covered, or the length of a rope that encloses the points. It can be found in $\bigO (N\log{N})$ time by sorting the points on angle and the sweeping over all of them.
-        \codej{Etc/ConvexHull.java}
+        \codep{Etc/convexhull.py}
     \subsection{Number Theory}
         \codep{Etc/numbertheory.py}
 
