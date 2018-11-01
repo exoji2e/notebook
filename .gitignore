@@ -1,2 +1,7 @@
 *.class
 **/__pycache__
+_minted-notebook/
+*.aux
+*.log
+*.toc
+
