@@ -17,4 +17,4 @@ class RMQ:
             return 1
         d = b - a + 1
         k = int(math.log(d, 2))
-        return funq(RMQ[a][k], RMQ[b - (1<<k) + 1][k])
+        return self.func(self.data[a][k], self.data[b - (1<<k) + 1][k])
