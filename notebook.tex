@@ -143,10 +143,13 @@
         It's easy to implement, and gives you access to the internal structures of a binary tree, 
         which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a prefectly balanced tree.
         \codej{DS/Treap.java}
+    \subsection{RMQ}
+        $\bigO(1)$ queries of interval min, max, gcd or lcm. $\bigO(n \log n)$ building time.
+        \codep{DS/RMQ.py}
 \section{Graph Algorithms}
-    \subsection{Djikstras algorithm}
+    \subsection{Dijkstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
-        \codej{Graphs/Djikstra.java}
+        \codep{Graphs/dijkstra.py}
     \subsection{Bipartite Graphs}
         The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Könings theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
         \codej{Graphs/BiGraph.java}
