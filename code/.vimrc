@@ -5,4 +5,4 @@ set expandtab smarttab
 set autoindent smartindent
 set rnu number
 set scrolloff=8
-language en_US
+filetype plugin indent on

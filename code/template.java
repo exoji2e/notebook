@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 public class A {
     void solve(BufferedReader in) throws Exception {
-        
     }
     int toInt(String s) {return Integer.parseInt(s);}
     int[] toInts(String s) {
@@ -11,9 +10,6 @@ public class A {
         for(int i = 0; i<a.length; i++) 
             o[i] = toInt(a[i]);
         return o;
-    }
-    void e(Object o) {
-        System.err.println(o);
     }
     public static void main(String[] args) 
     throws Exception {
