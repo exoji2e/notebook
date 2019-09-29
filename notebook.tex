@@ -1,5 +1,7 @@
 \documentclass[8pt,a4paper,landscape,oneside]{amsart}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{titling}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
@@ -15,6 +17,7 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{bm}
+\DeclareUnicodeCharacter{127752}{\rb}
 
 % Minted
 \usepackage{minted}
@@ -30,7 +33,7 @@
     \vskip0.1em\vspace{-1em}}%
 }
 \pagestyle{fancy}
-\lhead{Cache Flow - Lund University}
+\lhead{Rainbow Unicode Characters - Lund University}
 \rhead{\thepage}
 \cfoot{}
 \setlength{\headheight}{15.2pt}
@@ -41,27 +44,37 @@
 \renewcommand{\footrulewidth}{0.4pt}
 
 \newcommand{\bigO}{\mathcal{O}}
-
-\title{Cache Flow}
+\title{RUC}
 \subtitle{Team Reference Document}
 \date{\ddmmyyyydate{\today{}}}
 
 \begin{document}
+\thispagestyle{fancy}
+\begin{titlingpage} %This starts the title page
+\begin{center}
+  \includegraphics[height=4cm]{rainbows.png}\\
+  \begin{Large}
+    Rainbow Unicode Characters \\
+    Team Reference Document \\
+    Lund University
+
+  \end{Large}
+\end{center}
 
 \begin{multicols*}{2}
-\maketitle
-\thispagestyle{fancy}
 \vspace{-3em}
-
 \tableofcontents
+\end{multicols*}
+\end{titlingpage}
+\begin{multicols*}{2}
 \begin{large}
-\section{Acieving AC on a solved problem}
+\section{Achieving AC on a solved problem}
     \subsection{WA}
         \begin{itemize}
         \item Check that minimal input passes.
         \item Can an int overflow?
         \item Reread the problem statement.
-        \item Start creating small testcases with python.
+        \item Start creating small test cases with python.
         \item Does cout print with high enough precision?
         \item Abstract the implementation.
         \end{itemize}
@@ -80,20 +93,20 @@
         \item Arrayindex out of bounds?
         \item Division by $0$?
         \item Modifying iterator while iterating over it?
-        \item Not using a well definied operator for Collections.sort?
+        \item Not using a well defined operator for Collections.sort?
         \item If nothing makes sense and the end of the contest is approaching you 
             can binary search over where the error is with try-except.
         \end{itemize}
     \subsection{MLE}
         \begin{itemize}
         \item Create objects outside recursive function.
-        \item Rewrite recursive solution to itterative with an own stack.
+        \item Rewrite recursive solution to iterative with an own stack.
         \end{itemize}
 \section{Ideas}
     \subsection{A TLE solution is obvious}
         \begin{itemize}
         \item If doing dp, drop parameter and recover from others.
-        \item Use a sorted datastructure.
+        \item Use a sorted data structure.
         \item Is there a hint in the statement saying that something more is bounded?
         \end{itemize}
     \subsection{Try this on clueless problems}
@@ -110,7 +123,7 @@
         Aliases.
         \codeb{.bashrc}
     \subsection{.vimrc}
-        Tabs, linenumbers, wrapping
+        Tabs, line numbers, wrapping
         \codev{.vimrc}
     \subsection{run.sh}
         Bash script to run all tests in a folder.
@@ -127,16 +140,16 @@
 
 \section{Data Structures}
     \subsection{Binary Indexed Tree}
-        Also called a fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
+        Also called a Fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
         \codej{DS/BIT.java}
     \subsection{Segment Tree}
-        More general than a fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
+        More general than a Fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
         \codej{DS/ST.java}
     \subsection{Lazy Segment Tree}
         More general implementation of a segment tree where its possible to increase whole segments by some diff, with lazy propagation. Implemented with arrays instead of nodes, which probably has less overhead to write during a competition.
         \codej{DS/LazySegmentTree.java}
     \subsection{Union Find}
-        This data structure is used in varoius algorithms, for example Kruskals algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
+        This data structure is used in various algorithms, for example Kruskal's algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
         \codej{DS/UF.java}
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
@@ -144,7 +157,7 @@
     \subsection{Treap}
         Treap is a binary search tree that uses randomization to balance itself. 
         It's easy to implement, and gives you access to the internal structures of a binary tree, 
-        which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a prefectly balanced tree.
+        which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a perfectly balanced tree.
         \codej{DS/Treap.java}
     \subsection{RMQ}
         $\bigO(1)$ queries of interval min, max, gcd or lcm. $\bigO(n \log n)$ building time.
@@ -154,15 +167,16 @@
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
         \codep{Graphs/dijkstra.py}
     \subsection{Bipartite Graphs}
-        The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Könings theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
+        The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Köning's theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
         \codej{Graphs/BiGraph.java}
     \subsection{Network Flow}
-        The Floyd Warshall algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
+        Ford-Fulkerson algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
         \codep{Graphs/flow.py}
     \subsection{Dinitz Algorithm}
     Faster flow algorithm.
         \codep{Graphs/dinitz.py}
+        \codec{Graphs/dinic.cpp}
     \subsection{Min Cost Max Flow}
         Finds the minimal cost of a maximum flow through a graph. 
         Can be used for some optimization problems where the optimal assignment needs to be a maximum flow.
@@ -173,17 +187,17 @@
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
-        Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easility be transformed to longest decreasing/nondecreasing/nonincreasing subsequence.
+        Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easily be transformed to longest decreasing/non decreasing/non increasing subsequence.
         \codej{DP/lis.py}
     \subsection{String functions}
         The z-function computes the longest common prefix of $t$ and $t[i:]$ for each $i$ in $\bigO(|t|)$.
         The border function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
         \codep{DP/strings.py}
     \subsection{Josephus problem}
-        Who is the last one to get removed from a circle if the k'th element is continously removed?
+        Who is the last one to get removed from a circle if the k'th element is continuously removed?
         \codep{DP/josephus.py}
     \subsection{Floyd Warshall}
-        Constucts a matrix with the distance between all pairs of nodes in $\bigO(n^3)$ time.
+        Constructs a matrix with the distance between all pairs of nodes in $\bigO(n^3)$ time.
         Works for negative edge weights, but not if there exists negative cycles.
         The nxt matrix is used to reconstruct a path. Can be skipped if we don't care about the path.
         \codep{DP/floydwarshall.py}
@@ -203,7 +217,7 @@
 
 \section{NP tricks}
     \subsection{MaxClique}
-        The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the lagest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runns in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conqurer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
+        The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the largest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runs in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conquer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
         \codej{NP/MaxClique.java}
 \section{Coordinate Geometry}
     \subsection{Area of a nonintersecting polygon}
@@ -217,9 +231,9 @@
         \end{align*}
         Intersects in the point 
         $$P = (\frac{b_1c_2 - b_2c_1}{w}, \frac{a_2c_1 - a_1c_2}{w}),$$
-        where $w = a_1b_2 - a_2b_1$. If $w = 0$ the lines are parallell.
+        where $w = a_1b_2 - a_2b_1$. If $w = 0$ the lines are parallel.
         \subsection{Distance between line segment and point}
-        Given a linesegment between point $P, Q$, the distance D to point $R$ is given by:
+        Given a line segment between point $P, Q$, the distance D to point $R$ is given by:
         \begin{align*}
             a &= Q_y - P_y \\
             b &= Q_x - P_x \\
@@ -253,7 +267,7 @@
     \item Is MLE called MLE or RTE?
     \item What happens if extra output is added? What about one extra new line or space?
     \item Look at documentation on judge.
-    \item Submit a clar.
+    \item Submit a clarification.
     \item Print a file.
     \item Directory with test cases.
 \end{itemize}
