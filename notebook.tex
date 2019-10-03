@@ -184,6 +184,9 @@
     \subsection{2-Sat}
         Solves 2sat by splitting up vertices in strongly connected components.
         \codej{Graphs/TwoSat.py}
+    \subsection{Min Cost Max Bipartite Matching}
+        The Hungarian algorithm runs in $\bigO(n^3)$ with a low constant, giving us the minimum cost matching. If the maximum cost is wanted you can just negate the weights.
+        \codec{Graphs/Hungarian.cpp}
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
