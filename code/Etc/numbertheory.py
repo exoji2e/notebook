@@ -1,6 +1,10 @@
 def gcd(a, b):
   return b if a%b == 0 else gcd(b, a%b)
 
+# Assumes MOD is a prime from Fermat's small theorem
+def inv(a, MOD):
+    return pow(a, MOD - 2, MOD)
+
 # returns g = gcd(a, b), x0, y0, 
 # where g = x0*a + y0*b
 def xgcd(a, b):

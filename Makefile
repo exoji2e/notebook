@@ -1,11 +1,10 @@
 latexfile = notebook
 
-$(latexfile).pdf: $(latexfile).tex code
+
+all: 
 	while (pdflatex -shell-escape $(latexfile) ; \
 	grep -q "Rerun to get cross" $(latexfile).log ) do true ; \
 	done
-
-all: $(latexfile).pdf
 
 rebuild: clean all
 

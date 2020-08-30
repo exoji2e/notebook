@@ -1,5 +1,5 @@
 from gauss import gauss
-class M2():
+class M2:
     def __init__(self, v):
         self.v = v%2
     def __add__(self, m):

@@ -4,4 +4,4 @@ _minted-notebook/
 *.aux
 *.log
 *.toc
-
+*.pyc
