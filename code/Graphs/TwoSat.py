@@ -1,11 +1,12 @@
+# used in sevenkingdoms, illumination
 import sys
 sys.setrecursionlimit(10**5)
 class Sat:
     def __init__(self, no_vars):
         self.size = no_vars*2
         self.no_vars = no_vars
-        self.adj = [[] for _ in range(self.size())]
-        self.back = [[] for _ in range(self.size())]
+        self.adj = [[] for _ in range(self.size)]
+        self.back = [[] for _ in range(self.size)]
     def add_imply(self, i, j):
         self.adj[i].append(j)
         self.back[j].append(i)
@@ -49,3 +50,21 @@ class Sat:
             if self.comp[i*2] == self.comp[i*2+1]:
                 return False
         return True
+
+    # assumes is_sat. 
+    # If ¬xi is after xi in topological sort,
+    # xi should be FALSE. It should be TRUE otherwise.
+    # https://codeforces.com/blog/entry/16205
+    def solution(self):
+        V = []
+        for i in range(self.no_vars):
+            V.append(self.comp[i*2] > self.comp[i*2^1])
+        return V
+
+if __name__ == '__main__':
+    S = Sat(1)
+    S.add_or(0, 0)
+    print(S.is_sat())
+    print(S.solution())
+
+
