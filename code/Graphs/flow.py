@@ -11,7 +11,7 @@ class Flow:
         if s == t: return FLOW
         self.V.add(s)
         for u, w in self.G[s].items():
-            if w and u not in self.dead:
+            if w:
                 F = self.dfs(u, t, min(FLOW, w))
                 if F:
                     self.G[s][u] -= F
@@ -22,9 +22,9 @@ class Flow:
 
     def max_flow(self, s, t):
         flow = 0
-        self.dead = set()
         while True:
-            pushed = self.bfs(s, t)
+            self.V = set()
+            pushed = self.dfs(s, t, float('inf'))
             if not pushed: break
             flow += pushed
         return flow
