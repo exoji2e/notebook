@@ -6,25 +6,26 @@ class Flow:
     def add_edge(self, i, j, w):
         self.G[i][j] += w
     
-    def dfs(self, s, t, FLOW):
-        if s in self.V: return 0
-        if s == t: return FLOW
-        self.V.add(s)
-        for u, w in self.G[s].items():
+    def dfs(self, u, FLOW):
+        if u in self.reached: return 0
+        if u == self.T: return FLOW
+        G = self.G
+        self.reached.add(u)
+        for v, w in G[u].items():
             if w:
-                F = self.dfs(u, t, min(FLOW, w))
-                if F:
-                    self.G[s][u] -= F
-                    self.G[u][s] += F
-                    return F
-        self.dead.add(s)
+                f = self.dfs(v, min(FLOW, w))
+                if f:
+                    G[u][v] -= f
+                    G[v][u] += f
+                    return f
         return 0
 
-    def max_flow(self, s, t):
+    def max_flow(self, S, T):
         flow = 0
+        self.T = T
         while True:
-            self.V = set()
-            pushed = self.dfs(s, t, float('inf'))
+            self.reached = set()
+            pushed = self.dfs(S, float('inf'))
             if not pushed: break
             flow += pushed
         return flow
