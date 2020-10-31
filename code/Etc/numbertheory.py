@@ -66,6 +66,15 @@ def div(L, d):
     i += 1
   return s[i:]
 
+def prines(N):
+  soll = [0]*(N)
+  primes = []
+  for i in range(2, N):
+    if not soll[i]:
+      primes.append(i)
+      for k in range(i*i, N, i):
+        soll[k] = 1
+  return primes
 
 # Multiplies a list of digits with an int.
 # A lot faster than using bigint-multiplication.
