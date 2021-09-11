@@ -2,12 +2,13 @@
 layout: base
 ---
 
-# Notebook
+# Competitive Programming Notebook
 
-![rainbow](rainbows.png)
+A selection of algorithms and data structures used in programming competitions by the team Rainbow Unicode Characters.
+
+[GitHub repo](https://github.com/exoji2e/notebook)
 
 
-### TOC
 <ul>
 {% for part in site.data.code_files %}
     <li><a href="#{{part.name}}">{{part.name}}</a>
@@ -33,7 +34,6 @@ layout: base
         {% highlight java %}{% include_relative {{file.path}} %}{% endhighlight %}
         {% elsif file.lang == 'cpp' %}
         {% highlight cpp %}{% include_relative {{file.path}} %}{% endhighlight %}
-        {% else %}
         {% else %}
         {% highlight python %}{% include_relative {{file.path}} %}{% endhighlight %}
         {% endif %}
