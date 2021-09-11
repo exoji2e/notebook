@@ -1,0 +1,32 @@
+- name: Dynamic Programming
+  files:
+  - name: Floyd Warshall 
+    path: code/DP/floydwarshall.py
+  - name: Josephus Problem 
+    path: code/DP/josephus.py
+  - name: String problems
+    path: code/DP/strings.py
+  - name: Longest Increasing Subsequence
+    path: code/DP/lis.py
+- name: Data Structures
+  files:
+  - name: RMQ
+    path: code/DS/RMQ.py
+  - name: Binary Indexed Tree
+    path: code/DS/BIT.java
+    lang: java
+  - name: Lazy Segment Tree
+    path: code/DS/LazySegmentTree.java
+    lang: java
+  - name: Segment Tree
+    path: code/DS/ST.java
+    lang: java
+  - name: Monotone Queue
+    path: code/DS/MinMonQue.java
+    lang: java
+  - name: Treap
+    path: code/DS/Treap.java
+    lang: java
+  - name: Union Find
+    path: code/DS/UF.java
+    lang: java

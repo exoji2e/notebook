@@ -1,0 +1,12 @@
+# Site settings
+title: Competitive programming notebook
+email: exoji2e@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Måns Magnusson
+github_username:  exoji2e
+
+# Build settings
+markdown: kramdown
+
+highlighter: rouge
+

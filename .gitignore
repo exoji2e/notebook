@@ -5,3 +5,5 @@ _minted-notebook/
 *.log
 *.toc
 *.pyc
+.jekyll-cache
+_site
