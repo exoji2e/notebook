@@ -1,13 +1,23 @@
+- name: Templates
+  files:
+  - name: Python template
+    path: code/template.py
+  - name: Java template
+    path: code/template.java
+    lang: java
+  - name: C++ template
+    path: code/template.cpp
+    lang: cpp
 - name: Dynamic Programming
   files:
-  - name: Floyd Warshall 
-    path: code/DP/floydwarshall.py
-  - name: Josephus Problem 
-    path: code/DP/josephus.py
   - name: String problems
     path: code/DP/strings.py
+  - name: Josephus Problem 
+    path: code/DP/josephus.py
   - name: Longest Increasing Subsequence
     path: code/DP/lis.py
+  - name: Floyd Warshall 
+    path: code/DP/floydwarshall.py
 - name: Data Structures
   files:
   - name: RMQ
@@ -30,3 +40,25 @@
   - name: Union Find
     path: code/DS/UF.java
     lang: java
+- name: Graphs
+  files:
+  - name: Dijkstra's algorithm
+    path: code/Graphs/dijkstra.py
+  - name: Network Flow
+    path: code/Graphs/flow.py
+  - name: Diniz Flow
+    path: code/Graphs/dinitz.py
+  - name: Two Sat 
+    path: code/Graphs/TwoSat.py
+  - name: Hungarian Algorithm
+    path: code/Graphs/Hungarian.cpp
+    lang: cpp
+- name: Etc
+  files:
+  - name: FFT
+    path: code/Etc/fft.py
+  - name: Gauss
+    path: code/Etc/gauss.py
+  - name: Number Theory
+    path: code/Etc/numbertheory.py
+
