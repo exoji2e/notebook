@@ -22,14 +22,13 @@
   files:
   - name: RMQ
     path: code/DS/RMQ.py
+  - name: Segment Tree
+    path: code/DS/segment_tree.py
   - name: Binary Indexed Tree
     path: code/DS/BIT.java
     lang: java
   - name: Lazy Segment Tree
     path: code/DS/LazySegmentTree.java
-    lang: java
-  - name: Segment Tree
-    path: code/DS/ST.java
     lang: java
   - name: Monotone Queue
     path: code/DS/MinMonQue.java
