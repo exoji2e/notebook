@@ -4,19 +4,20 @@ from heapq import heappop as pop, heappush as push
 # adj = [[(1, 2), (2, 3)], [(0, 2)], [0, 3]]
 def dijk(adj, S, T):
     N = len(adj)
-    INF = 10**10
+    INF = 10**18
     dist = [INF]*N
     pq = []
-    dist[S] = 0
-    push(pq, (0, S))
+    def add(i, dst):
+        if dst < dist[i]:
+            dist[i] = dst
+            push(pq, (dst, i))
+    add(S, 0)
 
     while pq:
         D, i = pop(pq)
+        if i == T: return D
         if D != dist[i]: continue
         for j, w in adj[i]:
-            alt = D + w
-            if dist[j] > alt:
-                dist[j] = alt
-                push(pq, (alt, j))
+            add(j, D + w)
     
     return dist[T]
