@@ -53,6 +53,8 @@
     path: code/Graphs/TwoSat.py
   - name: Hopcroft Karp
     path: code/Graphs/hopcroft_karp.py
+  - name: Shortest Cycle
+    path: code/Graphs/shortest_cycle.py
   - name: Hungarian Algorithm py
     path: code/Graphs/hungarian.py
   - name: Hungarian Algorithm cpp
