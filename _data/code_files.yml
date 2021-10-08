@@ -51,6 +51,8 @@
     path: code/Graphs/dinitz.py
   - name: Two Sat 
     path: code/Graphs/TwoSat.py
+  - name: Hopcroft Karp
+    path: code/Graphs/hopcroft_karp.py
   - name: Hungarian Algorithm py
     path: code/Graphs/hungarian.py
   - name: Hungarian Algorithm cpp
