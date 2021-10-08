@@ -58,7 +58,7 @@
   - name: Hungarian Algorithm py
     path: code/Graphs/hungarian.py
   - name: Hungarian Algorithm cpp
-    path: code/Graphs/hungarian.cpp
+    path: code/Graphs/Hungarian.cpp
     lang: cpp
 - name: Etc
   files:
