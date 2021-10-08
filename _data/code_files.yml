@@ -49,8 +49,10 @@
     path: code/Graphs/dinitz.py
   - name: Two Sat 
     path: code/Graphs/TwoSat.py
-  - name: Hungarian Algorithm
-    path: code/Graphs/Hungarian.cpp
+  - name: Hungarian Algorithm py
+    path: code/Graphs/hungarian.py
+  - name: Hungarian Algorithm cpp
+    path: code/Graphs/hungarian.cpp
     lang: cpp
 - name: Etc
   files:
@@ -60,4 +62,6 @@
     path: code/Etc/gauss.py
   - name: Number Theory
     path: code/Etc/numbertheory.py
+  - name: Geomerty
+    path: code/Geometry/geometry.py
 
