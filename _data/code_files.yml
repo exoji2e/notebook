@@ -41,6 +41,8 @@
     lang: java
 - name: Graphs
   files:
+  - name: BFS
+    path: code/Graphs/bfs.py
   - name: Dijkstra's algorithm
     path: code/Graphs/dijkstra.py
   - name: Network Flow
