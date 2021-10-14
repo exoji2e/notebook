@@ -1,6 +1,6 @@
 # Notebook
 This repo contains my notebook for ICPC-competitions.
-`
+
 All the code is found in the `code/` folder. 
 
 You can find a single page with copyable code at [https://exoji2e.github.io/notebook/](https://exoji2e.github.io/notebook/)
