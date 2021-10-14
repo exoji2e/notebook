@@ -1,7 +1,14 @@
 # Notebook
-This repo contains Cache-Flow's notebook for ACM-competitions.
+This repo contains my notebook for ICPC-competitions.
+`
+All the code is found in the `code/` folder. 
 
-All the code is found in the code/ folder. 
+You can find a single page with copyable code at [https://exoji2e.github.io/notebook/](https://exoji2e.github.io/notebook/)
+
+Generate the jekyll site locally with:
+
+`jekyll serve`, given that you have jekyll installed, and on your path.
+
 
 notebook.pdf might not continue to be up to date. I try to only push stable versions of the pdf.
 
@@ -13,4 +20,4 @@ Or for MacOS:
 - `brew cask install mactex` 
 - `sudo easy_install Pygments`
 
-Build with `make`.
+Build pdf with `make`.
