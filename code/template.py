@@ -1,23 +1,20 @@
+#!/usr/bin/python3
 from collections import *
 from itertools import permutations #No repeated elements
-import sys, bisect
+import sys
 sys.setrecursionlimit(10**5)
-inp = raw_input
+itr = (line for line in sys.stdin.read().split('\n'))
+INP = lambda: next(itr)
+def ni(): return int(INP())
+def nl(): return [int(_) for _ in INP().split()]
+def err(*s): print(*s, file=sys.stderr)
 
-def err(s):
-    sys.stderr.write('{}\n'.format(s))
+def main():
+    
+    return
 
-def ni():
-    return int(inp())
+if __name__ == '__main__':
+    main()
 
-def nl():
-    return [int(_) for _ in inp().split()]
 
-# q = deque([0])
-# a = q.popleft()
-# q.append(0)
-
-# a = [1, 2, 3, 3, 4]
-# bisect.bisect(a, 3) == 4
-# bisect.bisect_left(a, 3) == 2
 

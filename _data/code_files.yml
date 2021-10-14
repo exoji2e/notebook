@@ -41,6 +41,8 @@
     lang: java
 - name: Graphs
   files:
+  - name: BFS
+    path: code/Graphs/bfs.py
   - name: Dijkstra's algorithm
     path: code/Graphs/dijkstra.py
   - name: Network Flow
@@ -49,7 +51,13 @@
     path: code/Graphs/dinitz.py
   - name: Two Sat 
     path: code/Graphs/TwoSat.py
-  - name: Hungarian Algorithm
+  - name: Hopcroft Karp
+    path: code/Graphs/hopcroft_karp.py
+  - name: Shortest Cycle
+    path: code/Graphs/shortest_cycle.py
+  - name: Hungarian Algorithm py
+    path: code/Graphs/hungarian.py
+  - name: Hungarian Algorithm cpp
     path: code/Graphs/Hungarian.cpp
     lang: cpp
 - name: Etc
@@ -60,4 +68,6 @@
     path: code/Etc/gauss.py
   - name: Number Theory
     path: code/Etc/numbertheory.py
+  - name: Geomerty
+    path: code/Geometry/geometry.py
 
