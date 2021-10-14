@@ -1,9 +1,9 @@
 # Computes distance matrix and next matrix given an edgelist
 def FloydWarshall(n, edges):
-	INF = 1000000000
+	INF = 10**9
 	dist = [[INF]*n for _ in range(n)]
 	nxt = [[None]*n for _ in range(n)]
-	for e in edgs:
+	for e in edges:
 		dist[e[0]][e[1]] = e[2]
 		nxt[e[0]][e[1]] = e[1]
 	for k in range(n):
