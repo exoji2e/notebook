@@ -27,45 +27,46 @@ class SegmentTree:
 
     def query(self, lo, hi):
         assert 0 <= lo <= hi < self.sz
-        def _query(i, lo, hi):
-            l, r = self.L[i], self.R[i]
-            if r < lo or hi < l:
-                return None
-            if lo <= l <= r <= hi:
-                return self.value[i]
-            return self._combine(
-                _query(i*2, lo, hi), 
-                _query(i*2 + 1, lo, hi)
-                )
-        return _query(1, lo, hi)
+        return self.__query(1, lo, hi)
     
+    def __query(self, i, lo, hi):
+        l, r = self.L[i], self.R[i]
+        if r < lo or hi < l:
+            return None
+        if lo <= l <= r <= hi:
+            return self.value[i]
+        return self._combine(
+            self.__query(i*2, lo, hi),
+            self.__query(i*2 + 1, lo, hi)
+            )
 
     def assign(self, pos, value):
         assert 0 <= pos < self.sz
-        def _assign(i, pos, value):
-            l, r = self.L[i], self.R[i]
-            if pos < l or r < pos: return
-            if pos == l == r:
-                self.value[i] = value
-                return
-            _assign(i*2, pos, value)
-            _assign(i*2 + 1, pos, value)
-            self._fix(i)
-        return _assign(1, pos, value)
+        return self.__assign(1, pos, value)
 
+    def __assign(self, i, pos, value):
+        l, r = self.L[i], self.R[i]
+        if pos < l or r < pos: return
+        if pos == l == r:
+            self.value[i] = value
+            return
+        self.__assign(i*2, pos, value)
+        self.__assign(i*2 + 1, pos, value)
+        self._fix(i)
 
     def inc(self, pos, delta):
         assert 0 <= pos < self.sz
-        def _inc(i, pos, delta):
-            l, r = self.L[i], self.R[i]
-            if pos < l or r < pos: return
-            if pos == l == r:
-                self.value[i] += delta
-                return
-            _inc(i*2, pos, delta)
-            _inc(i*2 + 1, pos, delta)
-            self._fix(i)
-        _inc(1, pos, delta)
+        self.__inc(1, pos, delta)
+
+    def __inc(self, i, pos, delta):
+        l, r = self.L[i], self.R[i]
+        if pos < l or r < pos: return
+        if pos == l == r:
+            self.value[i] += delta
+            return
+        self.__inc(i*2, pos, delta)
+        self.__inc(i*2 + 1, pos, delta)
+        self._fix(i)
 
 
 
