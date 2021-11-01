@@ -24,7 +24,9 @@
     path: code/DS/RMQ.py
   - name: Segment Tree
     path: code/DS/segment_tree.py
-  - name: Binary Indexed Tree
+  - name: Fenwick Tree
+    path: code/DS/fenwick_tree.py
+  - name: Binary Indexed Tree (java)
     path: code/DS/BIT.java
     lang: java
   - name: Lazy Segment Tree

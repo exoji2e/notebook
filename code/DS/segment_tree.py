@@ -1,3 +1,4 @@
+# Tested on: https://open.kattis.com/problems/supercomputer
 class SegmentTree:
     def __init__(self, arr, func=min):
         self.sz = len(arr)
