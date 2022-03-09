@@ -53,7 +53,7 @@ def uP(n):
 
 # C[x] = sum_{i=0..N}(A[x-i]*B[i])
 def polymul(A, B):
-    sz = max(uP(len(A), len(B)))
+    sz = 2*max(uP(len(A)), (len(B)))
     A = A + [0]*(sz - len(A))
     B = B + [0]*(sz - len(B))
     fA = FFT(A)

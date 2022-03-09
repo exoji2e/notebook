@@ -7,3 +7,4 @@ _minted-notebook/
 *.pyc
 .jekyll-cache
 _site
+.DS_Store
