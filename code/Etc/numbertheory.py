@@ -1,9 +1,15 @@
+import math
+
+# Evaluates to n! / (k! * (n - k)!) when k <= n and evaluates to zero when k > n.
+# math.comb(n, k) #introduced in python3.8
+
+# math.gcd(a, b)
 def gcd(a, b):
   return b if a%b == 0 else gcd(b, a%b)
 
-# Assumes MOD is a prime from Fermat's small theorem
+# returns b where (a*b)%MOD == 1 
 def inv(a, MOD):
-    return pow(a, MOD - 2, MOD)
+    return pow(a, -1, MOD)
 
 # returns g = gcd(a, b), x0, y0, 
 # where g = x0*a + y0*b
@@ -34,6 +40,7 @@ def crt(la, ln):
     return x % prod
 
 # finds x^e mod m
+# Or just pow(x, e, m)
 def modpow(x, m, e):
     res = 1
     while e:
