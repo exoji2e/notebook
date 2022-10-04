@@ -72,4 +72,6 @@
     path: code/Etc/numbertheory.py
   - name: Geomerty
     path: code/Geometry/geometry.py
+  - name: Convex Hull
+    path: code/Etc/convexhull.py
 
