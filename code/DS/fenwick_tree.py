@@ -9,6 +9,13 @@ class FenwickTree: # zero indexed calls!
             self.data = [0]*(len(A) + 1)
             for i, a in enumerate(A):
                 self.inc(i, a)
+    def __setitem__(self, i, v):
+        self.assign(i, v)
+    def __getitem__(self, k):
+        if type(k) == slice:
+            return self.query(k.start, k.stop - 1)
+        elif type(k) == int:
+            return self.query(k, k)
     # A[i] = v
     def assign(self, i, v):
         currV = self.query(i, i)
@@ -33,8 +40,10 @@ class FenwickTree: # zero indexed calls!
 
 if __name__ == '__main__':
     tree = FenwickTree(10)
-    tree.assign(0, 5)
-    tree.assign(1, 4)
+    tree[0] = 5
+    tree[1] = 4
     assert tree.query(0, 1) == 9
+    assert tree[0:2] == 9
+    assert tree[0] == 5
     t2 = FenwickTree([1, 2, 3, 4])
-    assert t2.query(1, 3) == 9
+    assert t2[1:4] == 9
