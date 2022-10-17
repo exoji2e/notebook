@@ -17,7 +17,16 @@ class SegmentTree:
             setup(2*i + 1, mid+1, hi)
             self._fix(i)
         setup(1, 0, self.sz-1)
-
+    def __setitem__(self, i, v):
+        self.assign(i, v)
+    def __fixslice__(self, k):
+        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
+    def __getitem__(self, k):
+        if type(k) == slice:
+            k = self.__fixslice__(k)
+            return self.query(k.start, k.stop - 1)
+        elif type(k) == int:
+            return self.query(k, k)
     def _fix(self, i):
         self.value[i] = self.func(self.value[2*i], self.value[2*i+1])
 
@@ -75,17 +84,13 @@ if __name__ == '__main__':
     def test(a, b):
         if a != b:
             print('failed:', a, b)
-    t = SegmentTree([1, 2, 3])
-    test(1, t.query(0, 2))
+    t1 = SegmentTree([1, 2, 3], func=min)
+    test(1, t1[0:3])
     t2 = SegmentTree([4, 3, 2, 1], func=lambda x, y: x + y)
-    test(7, t2.query(0, 1))
-    t2.assign(1, 10)
+    test(7, t2[:2])
+    test(10, t2[:])
+    test(3, t2[2:])
+    t2[1] = 10
     test(14, t2.query(0, 1))
     t2.inc(2, 1)
     test(17, t2.query(0, 2))
-
-    for i in range(1, 1000): # test that all sizes can be built!
-        try: 
-            t = SegmentTree([0]*i)
-        except:
-            print(i, 'Failed')

@@ -1,18 +1,23 @@
 # Tested on: https://open.kattis.com/problems/froshweek
 class FenwickTree: # zero indexed calls!
     # Give array or size!
-    def __init__(self, sz):
-        if type(sz) == int:
-            self.data = [0]*(sz+1)
-        elif type(sz) == list:
-            A = sz
-            self.data = [0]*(len(A) + 1)
+    def __init__(self, blob):
+        if type(blob) == int:
+            self.sz = blob
+            self.data = [0]*(blob+1)
+        elif type(blob) == list:
+            A = blob
+            self.sz = len(A)
+            self.data = [0]*(self.sz + 1)
             for i, a in enumerate(A):
                 self.inc(i, a)
+    def __fixslice__(self, k):
+        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
     def __setitem__(self, i, v):
         self.assign(i, v)
     def __getitem__(self, k):
         if type(k) == slice:
+            k = self.__fixslice__(k)
             return self.query(k.start, k.stop - 1)
         elif type(k) == int:
             return self.query(k, k)
@@ -20,10 +25,11 @@ class FenwickTree: # zero indexed calls!
     def assign(self, i, v):
         currV = self.query(i, i)
         self.inc(i, v - currV)
-    # A[i] += v
+    # A[i] += delta
+    # this method is ~3x faster than doing A[i] += delta
     def inc(self, i, delta):
         i += 1 # (to 1 indexing)
-        while i < len(self.data):
+        while i <= self.sz:
             self.data[i] += delta
             i += i&-i # lowest oneBit
     # sum(A[:i+1])
@@ -43,7 +49,7 @@ if __name__ == '__main__':
     tree[0] = 5
     tree[1] = 4
     assert tree.query(0, 1) == 9
-    assert tree[0:2] == 9
+    assert tree[:2] == 9
     assert tree[0] == 5
     t2 = FenwickTree([1, 2, 3, 4])
-    assert t2[1:4] == 9
+    assert t2[1:] == 9
