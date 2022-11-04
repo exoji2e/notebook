@@ -43,13 +43,3 @@ class FenwickTree: # zero indexed calls!
     # return sum(A[lo:hi+1])
     def query(self, lo, hi):
         return self.sum(hi) - self.sum(lo-1)
-
-if __name__ == '__main__':
-    tree = FenwickTree(10)
-    tree[0] = 5
-    tree[1] = 4
-    assert tree.query(0, 1) == 9
-    assert tree[:2] == 9
-    assert tree[0] == 5
-    t2 = FenwickTree([1, 2, 3, 4])
-    assert t2[1:] == 9

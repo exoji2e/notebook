@@ -20,11 +20,11 @@
 
 % Minted
 \usepackage{minted}
-\newcommand{\codej}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{java}{code/#1}}
-\newcommand{\codec}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{cpp}{code/#1}}
-\newcommand{\codep}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{py}{code/#1}}
-\newcommand{\codeb}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{bash}{code/#1}}
-\newcommand{\codev}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{vim}{code/#1}}
+\newcommand{\codej}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{java}{src/#1}}
+\newcommand{\codec}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{cpp}{src/#1}}
+\newcommand{\codep}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{py}{src/#1}}
+\newcommand{\codeb}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{bash}{src/#1}}
+\newcommand{\codev}[1]{\inputminted[fontsize=\large,tabsize=2,baselinestretch=1]{vim}{src/#1}}
 \newcommand{\subtitle}[1]{%
   \posttitle{%
     \par\end{center}
@@ -93,7 +93,7 @@
         \item Division by $0$?
         \item Modifying iterator while iterating over it?
         \item Not using a well defined operator for Collections.sort?
-        \item If nothing makes sense and the end of the contest is approaching you 
+        \item If nothing makes sense and the end of the contest is approaching you
             can binary search over where the error is with try-except.
         \end{itemize}
     \subsection{MLE}
@@ -140,98 +140,98 @@
 \section{Data Structures}
     \subsection{Binary Indexed Tree}
         Also called a Fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
-        \codej{DS/BIT.java}
+        \codej{datastructures/BIT.java}
     \subsection{Segment Tree}
         More general than a Fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
-        \codej{DS/ST.java}
+        \codej{datastructures/ST.java}
     \subsection{Lazy Segment Tree}
         More general implementation of a segment tree where its possible to increase whole segments by some diff, with lazy propagation. Implemented with arrays instead of nodes, which probably has less overhead to write during a competition.
-        \codej{DS/LazySegmentTree.java}
+        \codej{datastructures/LazySegmentTree.java}
     \subsection{Union Find}
         This data structure is used in various algorithms, for example Kruskal's algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
-        \codej{DS/UF.java}
+        \codej{datastructures/UF.java}
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
-        \codej{DS/MinMonQue.java}
+        \codej{datastructures/MinMonQue.java}
     \subsection{Treap}
-        Treap is a binary search tree that uses randomization to balance itself. 
-        It's easy to implement, and gives you access to the internal structures of a binary tree, 
+        Treap is a binary search tree that uses randomization to balance itself.
+        It's easy to implement, and gives you access to the internal structures of a binary tree,
         which can be used to find the k'th element for example. Because of the randomness, the average height is about a factor 4 of a perfectly balanced tree.
-        \codej{DS/Treap.java}
+        \codej{datastructures/Treap.java}
     \subsection{RMQ}
         $\bigO(1)$ queries of interval min, max, gcd or lcm. $\bigO(n \log n)$ building time.
-        \codep{DS/RMQ.py}
+        \codep{datastructures/RMQ.py}
 \section{Graph Algorithms}
     \subsection{Dijkstras algorithm}
         Finds the shortest distance between two Nodes in a weighted graph in $\bigO (|E| \log{|V|})$ time.
-        \codep{Graphs/dijkstra.py}
+        \codep{graphs/dijkstra.py}
     \subsection{Bipartite Graphs}
-        The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Köning's theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$. 
-        \codej{Graphs/BiGraph.java}
+        The Hopcroft-Karp algorithm finds the maximal matching in a bipartite graph. Also, this matching can together with Köning's theorem be used to construct a minimal vertex-cover, which as we all know is the complement of a maximum independent set. Runs in $\bigO (|E|\sqrt{|V|})$.
+        \codej{graphs/BiGraph.java}
     \subsection{Network Flow}
-        Ford-Fulkerson algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph. 
+        Ford-Fulkerson algorithm for determining the maximum flow through a graph can be used for a lot of unexpected problems. Given a problem that can be formulated as a graph, where no ideas are found trying, it might help trying to apply network flow. The running time is $\bigO (C \cdot m)$ where $C$ is the maximum flow and $m$ is the amount of edges in the graph.
         If $C$ is very large we can change the running time to $\bigO (\log{C}m^2)$ by only studying edges with a large enough capacity in the beginning.
-        \codep{Graphs/flow.py}
+        \codep{graphs/flow.py}
     \subsection{Dinitz Algorithm}
     Faster flow algorithm.
-        \codep{Graphs/dinitz.py}
-        \codec{Graphs/dinic.cpp}
+        \codep{graphs/dinitz.py}
+        \codec{graphs/dinic.cpp}
     \subsection{Min Cost Max Flow}
-        Finds the minimal cost of a maximum flow through a graph. 
+        Finds the minimal cost of a maximum flow through a graph.
         Can be used for some optimization problems where the optimal assignment needs to be a maximum flow.
-        \codej{Graphs/MinCostMaxFlow.java}
+        \codej{graphs/MinCostMaxFlow.java}
     \subsection{2-Sat}
         Solves 2sat by splitting up vertices in strongly connected components.
-        \codej{Graphs/TwoSat.py}
+        \codej{graphs/TwoSat.py}
     \subsection{Min Cost Max Bipartite Matching}
         The Hungarian algorithm runs in $\bigO(n^3)$ with a low constant, giving us the minimum cost matching. If the maximum cost is wanted you can just negate the weights.
-        \codec{Graphs/Hungarian.cpp}
+        \codec{graphs/Hungarian.cpp}
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
         Finds the longest increasing subsequence in an array in $\bigO(n \log{n})$ time. Can easily be transformed to longest decreasing/non decreasing/non increasing subsequence.
-        \codej{DP/lis.py}
+        \codej{dynamicprogramming/lis.py}
     \subsection{String functions}
         The z-function computes the longest common prefix of $t$ and $t[i:]$ for each $i$ in $\bigO(|t|)$.
         The border function computes the longest common proper (smaller than whole string) prefix and suffix of string $t[:i]$.
-        \codep{DP/strings.py}
+        \codep{dynamicprogramming/strings.py}
     \subsection{Josephus problem}
         Who is the last one to get removed from a circle if the k'th element is continuously removed?
-        \codep{DP/josephus.py}
+        \codep{dynamicprogramming/josephus.py}
     \subsection{Floyd Warshall}
         Constructs a matrix with the distance between all pairs of nodes in $\bigO(n^3)$ time.
         Works for negative edge weights, but not if there exists negative cycles.
         The nxt matrix is used to reconstruct a path. Can be skipped if we don't care about the path.
-        \codep{DP/floydwarshall.py}
+        \codep{dynamicprogramming/floydwarshall.py}
 
 \section{Etc}
     \subsection{System of Equations}
         Solves the system of equations $\bm{A}\bm{x} = \bm{b}$ by Gaussian elimination. This can for example be used to determine the expected value of each node in a markov chain. Runns in $\bigO (N^3)$.
-        \codep{Etc/gauss.py}
+        \codep{misc/gauss.py}
     \subsection{Convex Hull}
         From a collection of points in the plane the convex hull is often used to compute the largest distance or the area covered, or the length of a rope that encloses the points. It can be found in $\bigO (N\log{N})$ time by sorting the points on angle and the sweeping over all of them.
-        \codep{Etc/convexhull.py}
+        \codep{misc/convexhull.py}
     \subsection{Number Theory}
-        \codep{Etc/numbertheory.py}
+        \codep{misc/numbertheory.py}
     \subsection{FFT}
         FFT can be used to calculate the product of two polynomials of length N in $\bigO(N\log N)$ time. The FFT function requires a power of 2 sized array of size at least 2N to store the results as complex numbers.
-        \codep{Etc/fft.py}
+        \codep{misc/fft.py}
 
 \section{NP tricks}
     \subsection{MaxClique}
         The max clique problem is one of Karp's 21 NP-complete problems. The problem is to find the largest subset of an undirected graph that forms a clique - a complete graph. There is an obvious algorithm that just inspects every subset of the graph and determines if this subset is a clique. This algorithm runs in $\bigO(n^22^n)$. However one can use the meet in the middle trick (one step divide and conquer) and reduce the complexity to $\bigO(n^22^{\frac{n}{2}})$.
-        \codej{NP/MaxClique.java}
+        \codej{npcomplete/MaxClique.java}
 \section{Coordinate Geometry}
     \subsection{Area of a nonintersecting polygon}
-        The signed area of a polygon with n vertices is given by 
+        The signed area of a polygon with n vertices is given by
         $$A = \frac{1}{2}\sum_{i=0}^{n-1}(x_iy_{i+1} - x_{i+1}y_i)$$
     \subsection{Intersection of two lines}
-        Two lines defined by 
+        Two lines defined by
         \begin{align*}
             a_1x + b_1y + c_1 &= 0 \\
-            a_2x + b_2y + c_2 &= 0 
+            a_2x + b_2y + c_2 &= 0
         \end{align*}
-        Intersects in the point 
+        Intersects in the point
         $$P = (\frac{b_1c_2 - b_2c_1}{w}, \frac{a_2c_1 - a_1c_2}{w}),$$
         where $w = a_1b_2 - a_2b_1$. If $w = 0$ the lines are parallel.
         \subsection{Distance between line segment and point}
@@ -241,7 +241,7 @@
             b &= Q_x - P_x \\
             c &= P_xQ_y - P_yQ_x \\
             R_P &= (\frac{b(bR_x - aR_y) - ac}{a^2 + b^2}, \frac{a(aR_y - bR_x) - bc}{a^2 + b^2}) \\
-            D &= 
+            D &=
             \begin{cases}
                 \frac{|aR_x + bR_y + c|}{\sqrt{a^2 + b^2}} & \text{if $(R_{P_x}- P_x)(R_{P_x} - Q_x) < 0$}, \\
                 \min{|P - R|, |Q - R|} & \text{otherwise}
@@ -249,7 +249,7 @@
         \end{align*}
     \subsection{Picks theorem}
         Find the amount of internal integer coordinates $i$ inside a polygon with picks theorem
-        $A = \frac{b}{2} + i - 1$, where $A$ is the area of the polygon and 
+        $A = \frac{b}{2} + i - 1$, where $A$ is the area of the polygon and
         $b$ is the amount of coordinates on the boundary.
 
     \subsection{Trigonometry}
@@ -265,7 +265,7 @@
         \]
 
     \subsection{Implementations}
-        \codep{Geometry/geometry.py}
+        \codep{geometry/geometry.py}
 \newpage
 \section{Practice Contest Checklist}
 \begin{itemize}
