@@ -2,76 +2,101 @@
   files:
   - name: Python template
     path: code/template.py
+    id: py-template
   - name: Java template
     path: code/template.java
     lang: java
+    id: java-template
   - name: C++ template
     path: code/template.cpp
     lang: cpp
+    id: cpp-template
 - name: Dynamic Programming
   files:
   - name: String problems
     path: code/DP/strings.py
-  - name: Josephus Problem 
+    id: py-strings
+  - name: Josephus Problem
     path: code/DP/josephus.py
+    id: josephus
   - name: Longest Increasing Subsequence
     path: code/DP/lis.py
-  - name: Floyd Warshall 
+    id: py-lis
+  - name: Floyd Warshall
     path: code/DP/floydwarshall.py
+    id: py-floyd-warshall
 - name: Data Structures
   files:
   - name: RMQ
     path: code/DS/RMQ.py
+    id: py-rmq
   - name: Segment Tree
     path: code/DS/segment_tree.py
+    id: py-segment-tree
   - name: Fenwick Tree
     path: code/DS/fenwick_tree.py
-  - name: Binary Indexed Tree (java)
-    path: code/DS/BIT.java
-    lang: java
+    id: py-fw-tree
   - name: Lazy Segment Tree
     path: code/DS/LazySegmentTree.java
     lang: java
+    id: java-lazy-st-tree
   - name: Monotone Queue
     path: code/DS/MinMonQue.java
     lang: java
+    id: java-min-mon-queue
   - name: Treap
     path: code/DS/Treap.java
     lang: java
+    id: java-treap
   - name: Union Find
     path: code/DS/UF.java
     lang: java
+    id: java-uf
 - name: Graphs
   files:
   - name: BFS
     path: code/Graphs/bfs.py
+    id: py-bfs
   - name: Dijkstra's algorithm
     path: code/Graphs/dijkstra.py
+    id: py-dijkstra
   - name: Network Flow
     path: code/Graphs/flow.py
-  - name: Diniz Flow
+    id: py-flow
+  - name: Dinitz Flow
     path: code/Graphs/dinitz.py
-  - name: Two Sat 
+    id: py-dinitz
+  - name: Two Sat
     path: code/Graphs/TwoSat.py
+    id: py-two-sat
   - name: Hopcroft Karp
     path: code/Graphs/hopcroft_karp.py
+    id: py-hopcroft-karp
   - name: Shortest Cycle
     path: code/Graphs/shortest_cycle.py
+    id: py-shortest-cycle
   - name: Hungarian Algorithm py
     path: code/Graphs/hungarian.py
+    id: py-hungarian
   - name: Hungarian Algorithm cpp
     path: code/Graphs/Hungarian.cpp
     lang: cpp
+    id: cpp-hungarian
 - name: Etc
   files:
   - name: FFT
     path: code/Etc/fft.py
+    id: py-fft
   - name: Gauss
     path: code/Etc/gauss.py
+    id: py-gauss
   - name: Number Theory
     path: code/Etc/numbertheory.py
+    id: py-number-theory
   - name: Geomerty
     path: code/Geometry/geometry.py
+    id: py-geometry
   - name: Convex Hull
     path: code/Etc/convexhull.py
+    id: py-convex-hull
 

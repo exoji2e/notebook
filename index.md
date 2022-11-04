@@ -28,13 +28,11 @@ A selection of algorithms and data structures used in programming competitions b
 
 
 <ul>
-{% assign cnt = 0 %}
 {% for part in site.data.code_files %}
     <li><a href="#{{part.name}}">{{part.name}}</a>
     <ul>
     {% for file in part.files %}
-    {% assign cnt = cnt | plus: 1 %}
-        <li><a href="#code-{{ cnt }}">{{file.name}}</a></li>
+        <li><a href="#{{ file.id }}">{{file.name}}</a></li>
     {% endfor %}
     </ul>
     </li>
@@ -43,18 +41,16 @@ A selection of algorithms and data structures used in programming competitions b
 
 
 
-{% assign cnt = 0 %}
 {% for part in site.data.code_files %}
 <a name="{{part.name}}">
 ## {{ part.name }}
 
 {% for file in part.files %}
-{% assign cnt = cnt | plus: 1 %}
-<a name="code-{{ cnt }}">
+<a name="{{ file.id }}">
 
-<h3>{{ file.name }} <span title="Copy" class="fa fa-copy copy" onclick="clip('box-{{ cnt }}')" /></h3>
+<h3>{{ file.name }} <span title="Copy" class="fa fa-copy copy" onclick="clip('box-{{ file.id }}')" /></h3>
 
-<div id="box-{{ cnt }}">
+<div id="box-{{ file.id }}">
         {% if file.lang == 'java' %}
         {% highlight java %}{% include_relative {{file.path}} %}{% endhighlight %}
         {% elsif file.lang == 'cpp' %}
