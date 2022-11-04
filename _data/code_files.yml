@@ -27,15 +27,18 @@
     id: py-floyd-warshall
 - name: Data Structures
   files:
-  - name: RMQ
-    path: src/datastructures/RMQ.py
-    id: py-rmq
   - name: Segment Tree
     path: src/datastructures/segment_tree.py
     id: py-segment-tree
   - name: Fenwick Tree
     path: src/datastructures/fenwick_tree.py
     id: py-fw-tree
+  - name: RMQ
+    path: src/datastructures/RMQ.py
+    id: py-rmq
+  - name: Union Find
+    path: src/datastructures/union_find.py
+    id: py-uf
   - name: Lazy Segment Tree
     path: src/datastructures/LazySegmentTree.java
     lang: java
@@ -48,10 +51,6 @@
     path: src/datastructures/Treap.java
     lang: java
     id: java-treap
-  - name: Union Find
-    path: src/datastructures/UF.java
-    lang: java
-    id: java-uf
 - name: Graphs
   files:
   - name: BFS
