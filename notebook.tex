@@ -138,18 +138,18 @@
         \codec{template.cpp}
 
 \section{Data Structures}
-    \subsection{Binary Indexed Tree}
-        Also called a Fenwick tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
-        \codej{datastructures/BIT.java}
+    \subsection{Fenwick Tree}
+        Also called a Binary indexed tree. Builds in $\bigO(n \log{n})$ from an array. Querry sum from 0 to i in $\bigO(\log{n})$ and updates an element in $\bigO(\log{n})$.
+        \codep{datastructures/fenwick_tree.py}
     \subsection{Segment Tree}
         More general than a Fenwick tree. Can adapt other operations than sum, e.g.\ min and max.
-        \codej{datastructures/ST.java}
+        \codep{datastructures/segment_tree.py}
     \subsection{Lazy Segment Tree}
         More general implementation of a segment tree where its possible to increase whole segments by some diff, with lazy propagation. Implemented with arrays instead of nodes, which probably has less overhead to write during a competition.
         \codej{datastructures/LazySegmentTree.java}
     \subsection{Union Find}
         This data structure is used in various algorithms, for example Kruskal's algorithm for finding a Minimal Spanning Tree in a weighted graph. Also it can be used for backward simulation of dividing a set.
-        \codej{datastructures/UF.java}
+        \codep{datastructures/union_find.py}
     \subsection{Monotone Queue}
         Used in sliding window algorithms where one would like to find the minimum in each interval of a given length. Amortized $\bigO(n)$ to find min in each of these intervals in an array of length $n$. Can easily be used to find the maximum as well.
         \codej{datastructures/MinMonQue.java}
@@ -182,10 +182,10 @@
         \codej{graphs/MinCostMaxFlow.java}
     \subsection{2-Sat}
         Solves 2sat by splitting up vertices in strongly connected components.
-        \codej{graphs/TwoSat.py}
-    \subsection{Min Cost Max Bipartite Matching}
+        \codep{graphs/TwoSat.py}
+    \subsection{Hungarian - Min Cost Max Bipartite Matching}
         The Hungarian algorithm runs in $\bigO(n^3)$ with a low constant, giving us the minimum cost matching. If the maximum cost is wanted you can just negate the weights.
-        \codec{graphs/Hungarian.cpp}
+        \codec{graphs/hungarian.py}
 
 \section{Dynamic Programming}
     \subsection{Longest Increasing Subsequence}
