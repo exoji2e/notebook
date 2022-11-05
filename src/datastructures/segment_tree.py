@@ -17,16 +17,6 @@ class SegmentTree:
             setup(2*i + 1, mid+1, hi)
             self._fix(i)
         setup(1, 0, self.sz-1)
-    def __setitem__(self, i, v):
-        self.assign(i, v)
-    def __fixslice__(self, k):
-        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
-    def __getitem__(self, k):
-        if type(k) == slice:
-            k = self.__fixslice__(k)
-            return self.query(k.start, k.stop - 1)
-        elif type(k) == int:
-            return self.query(k, k)
     def _fix(self, i):
         self.value[i] = self.func(self.value[2*i], self.value[2*i+1])
 
@@ -38,7 +28,7 @@ class SegmentTree:
     def query(self, lo, hi):
         assert 0 <= lo <= hi < self.sz
         return self.__query(1, lo, hi)
-    
+
     def __query(self, i, lo, hi):
         l, r = self.L[i], self.R[i]
         if r < lo or hi < l:
@@ -78,19 +68,15 @@ class SegmentTree:
         self.__inc(i*2 + 1, pos, delta)
         self._fix(i)
 
+    # for indexing - nice to have but not required
+    def __setitem__(self, i, v):
+        self.assign(i, v)
+    def __fixslice__(self, k):
+        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
+    def __getitem__(self, k):
+        if type(k) == slice:
+            k = self.__fixslice__(k)
+            return self.query(k.start, k.stop - 1)
+        elif type(k) == int:
+            return self.query(k, k)
 
-
-if __name__ == '__main__':
-    def test(a, b):
-        if a != b:
-            print('failed:', a, b)
-    t1 = SegmentTree([1, 2, 3], func=min)
-    test(1, t1[0:3])
-    t2 = SegmentTree([4, 3, 2, 1], func=lambda x, y: x + y)
-    test(7, t2[:2])
-    test(10, t2[:])
-    test(3, t2[2:])
-    t2[1] = 10
-    test(14, t2.query(0, 1))
-    t2.inc(2, 1)
-    test(17, t2.query(0, 2))

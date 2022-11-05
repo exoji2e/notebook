@@ -11,16 +11,6 @@ class FenwickTree: # zero indexed calls!
             self.data = [0]*(self.sz + 1)
             for i, a in enumerate(A):
                 self.inc(i, a)
-    def __fixslice__(self, k):
-        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
-    def __setitem__(self, i, v):
-        self.assign(i, v)
-    def __getitem__(self, k):
-        if type(k) == slice:
-            k = self.__fixslice__(k)
-            return self.query(k.start, k.stop - 1)
-        elif type(k) == int:
-            return self.query(k, k)
     # A[i] = v
     def assign(self, i, v):
         currV = self.query(i, i)
@@ -43,3 +33,15 @@ class FenwickTree: # zero indexed calls!
     # return sum(A[lo:hi+1])
     def query(self, lo, hi):
         return self.sum(hi) - self.sum(lo-1)
+
+    # for indexing - nice to have but not required
+    def __fixslice__(self, k):
+        return slice(k.start or 0, self.sz if k.stop == None else k.stop)
+    def __setitem__(self, i, v):
+        self.assign(i, v)
+    def __getitem__(self, k):
+        if type(k) == slice:
+            k = self.__fixslice__(k)
+            return self.query(k.start, k.stop - 1)
+        elif type(k) == int:
+            return self.query(k, k)
