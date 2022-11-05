@@ -92,6 +92,9 @@
   - name: Number Theory
     path: src/misc/numbertheory.py
     id: py-number-theory
+  - name: Primes
+    path: src/misc/primes.py
+    id: py-primes
   - name: Geomerty
     path: src/geometry/geometry.py
     id: py-geometry

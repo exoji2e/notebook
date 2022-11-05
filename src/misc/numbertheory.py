@@ -7,11 +7,11 @@ import math
 def gcd(a, b):
   return b if a%b == 0 else gcd(b, a%b)
 
-# returns b where (a*b)%MOD == 1 
+# returns b where (a*b)%MOD == 1
 def inv(a, MOD):
     return pow(a, -1, MOD)
 
-# returns g = gcd(a, b), x0, y0, 
+# returns g = gcd(a, b), x0, y0,
 # where g = x0*a + y0*b
 def xgcd(a, b):
   x0, x1, y0, y1 = 1, 0, 0, 1
@@ -73,16 +73,6 @@ def div(L, d):
     i += 1
   return s[i:]
 
-def prines(N):
-  soll = [0]*(N)
-  primes = []
-  for i in range(2, N):
-    if not soll[i]:
-      primes.append(i)
-      for k in range(i*i, N, i):
-        soll[k] = 1
-  return primes
-
 # Multiplies a list of digits with an int.
 # A lot faster than using bigint-multiplication.
 def mul(L, d):
@@ -96,19 +86,4 @@ def mul(L, d):
     r[0] = r[0]//10
   return s[::-1]
 
-large_primes = [
-5915587277,
-1500450271,
-3267000013,
-5754853343,
-4093082899,
-9576890767,
-3628273133,
-2860486313,
-5463458053,
-3367900313,
-10000000000000061,
-10**16 + 61,
-10**17 + 3
-        ]
 
