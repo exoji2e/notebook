@@ -24,28 +24,34 @@ class Dinitz:
         return level[t] != 0
 
     def dfs(self, s, t, FLOW):
-        if s in self.V: return 0
+        if s in self.dead: return 0
         if s == t: return FLOW
-        self.V.add(s)
-        L = self.level[s]
-        for u, w in self.G[s].items():
-            if u in self.dead: continue
-            if w and L+1==self.level[u]:
-                F = self.dfs(u, t, min(FLOW, w))
-                if F:
-                    self.G[s][u] -= F
-                    self.G[u][s] += F
-                    return F
+
+        for idx in range(self.pos[s], len(self.adj[s])):
+            u = self.adj[s][idx]
+            w = self.G[s][u]
+            F = self.dfs(u, t, min(FLOW, w))
+            if F:
+                self.G[s][u] -= F
+                self.G[u][s] += F
+                if self.G[s][u] == 0:
+                    self.pos[s] = idx+1
+                    if idx + 1 == len(self.adj[s]):
+                        self.dead.add(s)
+                return F
+            self.pos[s] = idx+1
         self.dead.add(s)
         return 0
-    
 
+    def setup_after_bfs(self):
+        self.adj = [[v for v, w in self.G[u].items() if w and self.level[u] + 1 == self.level[v]] for u in range(self.sz)]
+        self.pos = [0]*self.sz
+        self.dead = set()
     def max_flow(self, s, t):
         flow = 0
         while self.bfs(s, t):
-            self.dead = set()
+            self.setup_after_bfs()
             while True:
-                self.V = set()    
                 pushed = self.dfs(s, t, self.INF)
                 if not pushed: break
                 flow += pushed
