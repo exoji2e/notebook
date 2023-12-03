@@ -1,104 +1,106 @@
 - name: Templates
   files:
-  - name: Python template
-    path: src/template.py
-    id: py-template
-  - name: Java template
-    path: src/template.java
-    lang: java
-    id: java-template
-  - name: C++ template
-    path: src/template.cpp
-    lang: cpp
-    id: cpp-template
+    - name: Python template
+      path: src/template.py
+      id: py-template
+    - name: Java template
+      path: src/template.java
+      lang: java
+      id: java-template
+    - name: C++ template
+      path: src/template.cpp
+      lang: cpp
+      id: cpp-template
 - name: Dynamic Programming
   files:
-  - name: String problems
-    path: src/dynamicprogramming/strings.py
-    id: py-strings
-  - name: Josephus Problem
-    path: src/dynamicprogramming/josephus.py
-    id: josephus
-  - name: Longest Increasing Subsequence
-    path: src/dynamicprogramming/lis.py
-    id: py-lis
-  - name: Floyd Warshall
-    path: src/dynamicprogramming/floydwarshall.py
-    id: py-floyd-warshall
+    - name: String problems
+      path: src/dynamicprogramming/strings.py
+      id: py-strings
+    - name: Josephus Problem
+      path: src/dynamicprogramming/josephus.py
+      id: josephus
+    - name: Longest Increasing Subsequence
+      path: src/dynamicprogramming/lis.py
+      id: py-lis
+    - name: Floyd Warshall
+      path: src/dynamicprogramming/floydwarshall.py
+      id: py-floyd-warshall
 - name: Data Structures
   files:
-  - name: Segment Tree
-    path: src/datastructures/segment_tree.py
-    id: py-segment-tree
-  - name: Fenwick Tree
-    path: src/datastructures/fenwick_tree.py
-    id: py-fw-tree
-  - name: RMQ
-    path: src/datastructures/RMQ.py
-    id: py-rmq
-  - name: Union Find
-    path: src/datastructures/union_find.py
-    id: py-uf
-  - name: Lazy Segment Tree
-    path: src/datastructures/LazySegmentTree.java
-    lang: java
-    id: java-lazy-st-tree
-  - name: Monotone Queue
-    path: src/datastructures/MinMonQue.java
-    lang: java
-    id: java-min-mon-queue
-  - name: Treap
-    path: src/datastructures/Treap.java
-    lang: java
-    id: java-treap
+    - name: Segment Tree
+      path: src/datastructures/segment_tree.py
+      id: py-segment-tree
+    - name: Fenwick Tree
+      path: src/datastructures/fenwick_tree.py
+      id: py-fw-tree
+    - name: RMQ
+      path: src/datastructures/RMQ.py
+      id: py-rmq
+    - name: Union Find
+      path: src/datastructures/union_find.py
+      id: py-uf
+    - name: Lazy Segment Tree
+      path: src/datastructures/LazySegmentTree.java
+      lang: java
+      id: java-lazy-st-tree
+    - name: Monotone Queue
+      path: src/datastructures/MinMonQue.java
+      lang: java
+      id: java-min-mon-queue
+    - name: Treap
+      path: src/datastructures/Treap.java
+      lang: java
+      id: java-treap
 - name: Graphs
   files:
-  - name: BFS
-    path: src/graphs/bfs.py
-    id: py-bfs
-  - name: Dijkstra's algorithm
-    path: src/graphs/dijkstra.py
-    id: py-dijkstra
-  - name: Network Flow
-    path: src/graphs/flow.py
-    id: py-flow
-  - name: Dinitz Flow
-    path: src/graphs/dinitz.py
-    id: py-dinitz
-  - name: Two Sat
-    path: src/graphs/TwoSat.py
-    id: py-two-sat
-  - name: Hopcroft Karp
-    path: src/graphs/hopcroft_karp.py
-    id: py-hopcroft-karp
-  - name: Shortest Cycle
-    path: src/graphs/shortest_cycle.py
-    id: py-shortest-cycle
-  - name: Hungarian Algorithm py
-    path: src/graphs/hungarian.py
-    id: py-hungarian
-  - name: Hungarian Algorithm cpp
-    path: src/graphs/Hungarian.cpp
-    lang: cpp
-    id: cpp-hungarian
+    - name: BFS
+      path: src/graphs/bfs.py
+      id: py-bfs
+    - name: Dijkstra's algorithm
+      path: src/graphs/dijkstra.py
+      id: py-dijkstra
+    - name: Network Flow
+      path: src/graphs/flow.py
+      id: py-flow
+    - name: Dinitz Flow
+      path: src/graphs/dinitz.py
+      id: py-dinitz
+    - name: Two Sat
+      path: src/graphs/TwoSat.py
+      id: py-two-sat
+    - name: Hopcroft Karp
+      path: src/graphs/hopcroft_karp.py
+      id: py-hopcroft-karp
+    - name: Shortest Cycle
+      path: src/graphs/shortest_cycle.py
+      id: py-shortest-cycle
+    - name: Hungarian Algorithm py
+      path: src/graphs/hungarian.py
+      id: py-hungarian
+    - name: Hungarian Algorithm cpp
+      path: src/graphs/Hungarian.cpp
+      lang: cpp
+      id: cpp-hungarian
 - name: Etc
   files:
-  - name: FFT
-    path: src/misc/fft.py
-    id: py-fft
-  - name: Gauss
-    path: src/misc/gauss.py
-    id: py-gauss
-  - name: Number Theory
-    path: src/misc/numbertheory.py
-    id: py-number-theory
-  - name: Primes
-    path: src/misc/primes.py
-    id: py-primes
-  - name: Geomerty
-    path: src/geometry/geometry.py
-    id: py-geometry
-  - name: Convex Hull
-    path: src/misc/convexhull.py
-    id: py-convex-hull
-
+    - name: FFT
+      path: src/misc/fft.py
+      id: py-fft
+    - name: Gauss
+      path: src/misc/gauss.py
+      id: py-gauss
+    - name: Number Theory
+      path: src/misc/numbertheory.py
+      id: py-number-theory
+    - name: Primes
+      path: src/misc/primes.py
+      id: py-primes
+    - name: Geomerty
+      path: src/geometry/geometry.py
+      id: py-geometry
+    - name: Convex Hull
+      path: src/misc/convexhull.py
+      id: py-convex-hull
+    - name: Bootstrap
+      path: src/misc/bootstrap.py
+      id: py-bootstrap

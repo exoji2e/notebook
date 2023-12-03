@@ -2,7 +2,10 @@ from types import GeneratorType
 
 '''
 Never have problems with recursion limit again.
-Mark a recursive function with @bootstrap, but also instead of returning values, yield them. Also when calling the function recursively unpack the value with yield.
+Mark a recursive function with @bootstrap,
+but also instead of returning values, yield them.
+
+Also when calling the function recursively unpack the value with yield.
 
 Example:
 @bootstrap
