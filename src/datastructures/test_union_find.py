@@ -1,4 +1,4 @@
-from union_find import UnionFind
+from .union_find import UnionFind
 import unittest
 
 class UnionFindTest(unittest.TestCase):

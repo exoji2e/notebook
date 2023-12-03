@@ -1,5 +1,5 @@
 # monoid needs to implement
-# __add__, __mul__, __sub__, __div__ and isZ 
+# __add__, __mul__, __sub__, __truediv__ and isZ
 def gauss(A, b, monoid=None):
     def Z(v): return abs(v) < 1e-6 if not monoid else v.isZ()
 

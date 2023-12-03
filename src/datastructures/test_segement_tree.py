@@ -1,5 +1,5 @@
 import unittest
-from segment_tree import SegmentTree
+from .segment_tree import SegmentTree
 
 class SegmentTreeTest(unittest.TestCase):
     def test(self):
