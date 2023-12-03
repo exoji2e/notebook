@@ -44,7 +44,13 @@ class Dinitz:
         return 0
 
     def setup_after_bfs(self):
-        self.adj = [[v for v, w in self.G[u].items() if w and self.level[u] + 1 == self.level[v]] for u in range(self.sz)]
+        self.adj = []
+        for u in range(self.sz):
+            arr = []
+            for v, w in self.G[u].items():
+                if w and self.level[u] + 1 == self.level[v]:
+                    arr.append(v)
+            self.adj.append(arr)
         self.pos = [0]*self.sz
         self.dead = set()
     def max_flow(self, s, t):
