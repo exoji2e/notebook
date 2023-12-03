@@ -1,5 +1,5 @@
 import unittest
-import primes
+from . import primes
 
 class TestPrimes(unittest.TestCase):
     def testIsPrime(self):
