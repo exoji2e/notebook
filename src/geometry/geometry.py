@@ -118,5 +118,6 @@ def is_segment_intersection(s1, s2):
     d3 = cross(v, vec(q1, p1))
     d4 = cross(v, vec(q1, p2))
     if d1 * d2 * d3 * d4 == 0:
-        return True
+        p1, p2 = min(p1, p2), max(p1, p2)
+        return p1 <= q1 <= p2 or p1 <= q2 <= p2
     return sign(d1) != sign(d2) and sign(d3) != sign(d4)
