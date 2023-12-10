@@ -1,5 +1,34 @@
 import math
 
+# Area of polygon
+def area(polygon):
+    A = 0
+    for i in range(len(polygon)):
+        x1, y1 = polygon[i-1]
+        x2, y2 = polygon[i]
+        A += (x1 + x2) * (y2 - y1)
+    return abs(A/2)
+
+# number of integer coordinates inside polygon
+# assumes polygon has integer coordinates
+# Picks formula:
+# A = i + p/2 - 1
+def ptsInside(polygon):
+    import math
+    def countBoundaryPoints(polygon):
+        P = polygon
+        cnt = 0
+        for i in range(len(P)):
+            dx = P[i][0] - P[i-1][0]
+            dy = P[i][1] - P[i-1][1]
+            cnt += math.gcd(abs(dx), abs(dy))
+        return cnt
+    A = area(polygon)
+    p = countBoundaryPoints(polygon)
+    cntInside = round(A - p/2 + 1)
+    return cntInside
+
+
 # Distance between two points
 def dist(p, q):
     return math.hypot(p[0]-q[0], p[1] - q[1])
