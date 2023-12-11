@@ -1,4 +1,5 @@
 from collections import defaultdict
+from misc.bootstrap import bootstrap
 class Dinitz:
     def __init__(self, sz, INF=10**10):
         self.G = [defaultdict(int) for _ in range(sz)]
@@ -23,14 +24,15 @@ class Dinitz:
         self.level = level
         return level[t] != 0
 
+    @bootstrap
     def dfs(self, s, t, FLOW):
-        if s in self.dead: return 0
-        if s == t: return FLOW
+        if s in self.dead: yield 0
+        if s == t: yield FLOW
 
         for idx in range(self.pos[s], len(self.adj[s])):
             u = self.adj[s][idx]
             w = self.G[s][u]
-            F = self.dfs(u, t, min(FLOW, w))
+            F = yield self.dfs(u, t, min(FLOW, w))
             if F:
                 self.G[s][u] -= F
                 self.G[u][s] += F
@@ -38,10 +40,10 @@ class Dinitz:
                     self.pos[s] = idx+1
                     if idx + 1 == len(self.adj[s]):
                         self.dead.add(s)
-                return F
+                yield F
             self.pos[s] = idx+1
         self.dead.add(s)
-        return 0
+        yield 0
 
     def setup_after_bfs(self):
         self.adj = []
