@@ -138,15 +138,20 @@ def cross(u, v):
 # Point : (x, y)
 # returns true if intersecting s1 & s2 shares at least 1 point.
 def is_segment_intersection(s1, s2):
-    u = vec(*s1)
-    v = vec(*s2)
     p1, p2 = s1
     q1, q2 = s2
+    u = vec(p1, p2)
+    v = vec(q1, q2)
     d1 = cross(u, vec(p1, q1))
     d2 = cross(u, vec(p1, q2))
     d3 = cross(v, vec(q1, p1))
     d4 = cross(v, vec(q1, p2))
+    # at least one point is on other segment's line
     if d1 * d2 * d3 * d4 == 0:
-        p1, p2 = min(p1, p2), max(p1, p2)
-        return p1 <= q1 <= p2 or p1 <= q2 <= p2
+        items = [(d1, q1, s1), (d2, q2, s1), (d3, p1, s2), (d4, p2, s2)]
+        for dv, p, seg in items:
+            if dv == 0:
+                s, t = min(seg), max(seg)
+                if s <= p <= t: return True
+        return False
     return sign(d1) != sign(d2) and sign(d3) != sign(d4)
