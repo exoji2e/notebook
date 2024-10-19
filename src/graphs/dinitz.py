@@ -1,23 +1,29 @@
-from collections import defaultdict
 from misc.bootstrap import bootstrap
 class Dinitz:
-    def __init__(self, sz, INF=10**10):
-        self.G = [defaultdict(int) for _ in range(sz)]
+    def __init__(self, sz):
+        self.adj = [[] for _ in range(sz)]
         self.sz = sz
-        self.INF = INF
+        self.INF = 10**18
+        # if graph has edges with only small capacities, set to 1
+        self.push_start_limit = 2**30
+        self.tracked = []
+        self.dead = [False]*sz
+        self.seen = [False]*sz
 
-    def add_edge(self, i, j, w):
-        self.G[i][j] += w
+    def add_edge(self, i, j, cap, rCap=0):
+        self.adj[i].append([j, len(self.adj[j]), cap, 0])
+        self.adj[j].append([i, len(self.adj[i])-1, rCap, 0])
 
-    def bfs(self, s, t):
+    def bfs(self, s, t, MIN):
         level = [0]*self.sz
         q = [s]
         level[s] = 1
         while q:
             q2 = []
             for u in q:
-                for v, w in self.G[u].items():
-                    if w and level[v] == 0:
+                for v, _, w, used in self.adj[u]:
+                    cap = w - used
+                    if cap >= MIN and level[v] == 0:
                         level[v] = level[u] + 1
                         q2.append(v)
             q = q2
@@ -26,41 +32,40 @@ class Dinitz:
 
     @bootstrap
     def dfs(self, s, t, FLOW):
-        if s in self.dead: yield 0
+        if self.seen[s]: yield 0
+        if self.dead[s]: yield 0
         if s == t: yield FLOW
-
-        for idx in range(self.pos[s], len(self.adj[s])):
-            u = self.adj[s][idx]
-            w = self.G[s][u]
-            F = yield self.dfs(u, t, min(FLOW, w))
-            if F:
-                self.G[s][u] -= F
-                self.G[u][s] += F
-                if self.G[s][u] == 0:
-                    self.pos[s] = idx+1
-                    if idx + 1 == len(self.adj[s]):
-                        self.dead.add(s)
-                yield F
-            self.pos[s] = idx+1
-        self.dead.add(s)
+        self.seen[s] = True
+        self.tracked.append(s)
+        L = self.level[s]
+        for e in self.adj[s]:
+            u, bId, w, used = e
+            cap = w - used
+            if self.dead[u]: continue
+            if cap > 0 and L+1==self.level[u]:
+                F = yield self.dfs(u, t, min(FLOW, cap))
+                if F:
+                    e[3] += F
+                    self.adj[u][bId][3] -= F
+                    yield F
+        self.dead[s] = True
         yield 0
 
-    def setup_after_bfs(self):
-        self.adj = []
-        for u in range(self.sz):
-            arr = []
-            for v, w in self.G[u].items():
-                if w and self.level[u] + 1 == self.level[v]:
-                    arr.append(v)
-            self.adj.append(arr)
-        self.pos = [0]*self.sz
-        self.dead = set()
+    def resetV(self):
+        for v in self.tracked:
+            self.seen[v] = False
+        self.tracked = []
+
     def max_flow(self, s, t):
         flow = 0
-        while self.bfs(s, t):
-            self.setup_after_bfs()
-            while True:
-                pushed = self.dfs(s, t, self.INF)
-                if not pushed: break
-                flow += pushed
+        min_edge_cap = self.push_start_limit
+        while min_edge_cap > 0:
+            while self.bfs(s, t, min_edge_cap):
+                self.dead = [False]*self.sz
+                while True:
+                    self.resetV()
+                    pushed = self.dfs(s, t, self.INF)
+                    if not pushed: break
+                    flow += pushed
+            min_edge_cap = min_edge_cap // 2
         return flow
